@@ -2,13 +2,23 @@
 
 import React from 'react'
 import Link from 'next/link'
-import { ArrowRight, ChevronRight, Menu, X } from 'lucide-react'
+import Image from 'next/image'
+import { ArrowRight, Menu, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { AnimatedGroup } from '@/components/ui/animated-group'
 import { BeamsBackground } from '@/components/ui/beams-background'
 import { cn } from '@/lib/utils'
 
 const transitionVariants = {
+    container: {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.1,
+            },
+        },
+    },
     item: {
         hidden: {
             opacity: 0,
@@ -62,12 +72,12 @@ export function HeroSection() {
                                 },
                             }}
                             className="absolute inset-0 -z-20">
-                            <img
+                            <Image
                                 src="https://ik.imagekit.io/lrigu76hy/tailark/night-background.jpg?updatedAt=1745733451120"
                                 alt="background"
                                 className="absolute inset-x-0 top-56 -z-20 hidden lg:top-32 dark:block"
-                                width="3276"
-                                height="4095"
+                                width={3276}
+                                height={4095}
                             />
                         </AnimatedGroup>
                         <div aria-hidden className="absolute inset-0 -z-10 size-full [background:radial-gradient(125%_125%_at_50%_100%,transparent_0%,var(--background)_75%)]" />
@@ -472,9 +482,11 @@ const HeroHeader = () => {
 
 const Logo = ({ className }: { className?: string }) => {
     return (
-        <img
+        <Image
                     src="/logo.png"
                     alt="秒获客Logo"
+                    width={120}
+                    height={48}
                     className={cn('h-12 w-auto', className)}
                 />
     )

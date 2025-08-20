@@ -125,7 +125,7 @@ const ParticleCard: React.FC<{
   glowColor = DEFAULT_GLOW_COLOR,
   enableTilt = true,
   clickEffect = false,
-  enableMagnetism = false,
+  // enableMagnetism = false,
 }) => {
   const cardRef = useRef<HTMLDivElement>(null);
   const particlesRef = useRef<HTMLDivElement[]>([]);
@@ -246,9 +246,10 @@ const ParticleCard: React.FC<{
   }, [clickEffect]);
 
   useEffect(() => {
+    const magnetismAnimation = magnetismAnimationRef.current;
     return () => {
       clearAllParticles();
-      magnetismAnimationRef.current?.kill();
+      magnetismAnimation?.kill();
     };
   }, [clearAllParticles]);
 
@@ -270,7 +271,7 @@ const ParticleCard: React.FC<{
 };
 
 const MagicBento: React.FC<BentoProps> = ({
-  textAutoHide = true,
+  // textAutoHide = true,
   enableStars = true,
   enableSpotlight = true,
   enableBorderGlow = true,
@@ -280,10 +281,10 @@ const MagicBento: React.FC<BentoProps> = ({
   enableTilt = true,
   glowColor = DEFAULT_GLOW_COLOR,
   clickEffect = true,
-  enableMagnetism = true,
+  // enableMagnetism = true,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  // const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -316,7 +317,7 @@ const MagicBento: React.FC<BentoProps> = ({
             Math.pow(e.clientY - (cardRect.top + cardRect.height / 2), 2)
           );
           
-          const { proximity, fadeDistance } = calculateSpotlightValues(spotlightRadius);
+          const { fadeDistance } = calculateSpotlightValues(spotlightRadius);
           const glow = Math.max(0, 1 - distance / fadeDistance);
           
           updateCardGlowProperties(

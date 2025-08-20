@@ -5,7 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import { AnimatedGroup } from '@/components/ui/animated-group';
 // import { BeamsBackground } from '@/components/ui/beams-background';
-import { ArrowRight, CheckCircle, Zap, Users, Factory, Video, Bot, Rocket } from 'lucide-react';
+import { ArrowRight, CheckCircle, Zap, Users, Factory, Bot, Rocket } from 'lucide-react';
 import MagicBento from './MagicBento';
 
 // 主要产品体系
@@ -37,6 +37,7 @@ const mainProducts = [
 ];
 
 // AI产品详细介绍
+/*
 const aiProducts = [
   {
     id: 1,
@@ -78,6 +79,7 @@ const aiProducts = [
     case: '1名员工管理10个账号，日更百条优质内容，节省80%拍摄时间'
   }
 ];
+*/
 
 // 秒获客AI赋能获客体系流程
 const aiProcessSteps = [

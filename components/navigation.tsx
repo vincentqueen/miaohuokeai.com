@@ -2,6 +2,7 @@
 
 import React from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Menu, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
@@ -114,9 +115,11 @@ export function Navigation() {
 
 const Logo = ({ className }: { className?: string }) => {
     return (
-        <img
+        <Image
             src="/logo.png"
             alt="秒获客Logo"
+            width={120}
+            height={48}
             className={cn('h-12 w-auto', className)}
         />
     )
