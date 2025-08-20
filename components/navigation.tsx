@@ -10,8 +10,10 @@ import { cn } from '@/lib/utils'
 const menuItems = [
     { name: '首页', href: '/' },
     { name: '产品介绍', href: '/products' },
-    { name: 'AIGC应用平台', href: '#link' },
-    { name: 'AI数字员工', href: '#link' },
+    { name: '价格', href: '/pricing' },
+    { name: '联系我们', href: '/contact' },
+    { name: 'AIGC应用平台', href: '/aigc' },
+    { name: 'AI数字员工', href: 'https://agent.actoncode.cn/web/?tid=10033' },
 ]
 
 export function Navigation() {
@@ -50,13 +52,13 @@ export function Navigation() {
                             </button>
                         </div>
 
-                        <div className="absolute inset-0 m-auto hidden size-fit lg:block">
-                            <ul className="flex gap-8 text-sm">
+                        <div className="hidden lg:flex lg:flex-1 lg:justify-center">
+                            <ul className="flex gap-6 text-sm">
                                 {menuItems.map((item, index) => (
                                     <li key={index}>
                                         <Link
                                             href={item.href}
-                                            className="text-muted-foreground hover:text-accent-foreground block duration-150">
+                                            className="text-muted-foreground hover:text-accent-foreground block duration-150 whitespace-nowrap">
                                             <span>{item.name}</span>
                                         </Link>
                                     </li>

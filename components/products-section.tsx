@@ -1,18 +1,20 @@
 'use client';
 
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { AnimatedGroup } from '@/components/ui/animated-group';
 // import { BeamsBackground } from '@/components/ui/beams-background';
-import { ArrowRight, CheckCircle, Zap, Users, Factory, Bot, Rocket } from 'lucide-react';
+import { ArrowRight, CheckCircle, Zap, Users, Factory, Bot, Rocket, X } from 'lucide-react';
 import MagicBento from './MagicBento';
+import { Navigation } from './navigation';
 
 // 主要产品体系
 const mainProducts = [
   {
     id: 1,
-    title: '全域AI赋能获客体系（企业版）',
+    title: '全域AI赋能获客体系',
     description: 'AI+人工双轨服务，全流程获客解决方案',
     icon: <Zap className="w-8 h-8" />,
     gradient: 'from-blue-700 to-purple-500',
@@ -20,19 +22,19 @@ const mainProducts = [
   },
   {
     id: 2,
-    title: '全域营销赋能陪跑体系（企业版）',
-    description: '专业团队手把手教学，确保落地效果',
-    icon: <Users className="w-8 h-8" />,
-    gradient: 'from-blue-600 to-purple-400',
-    features: ['线下培训', '实时答疑', '效果复盘', '策略优化', '长期支持']
-  },
-  {
-    id: 3,
-    title: 'AI赋能+短期赋能陪跑（企业版）',
+    title: 'AI赋能+短期赋能陪跑',
     description: '快速启动，短期见效的轻量化解决方案',
     icon: <Rocket className="w-8 h-8" />,
     gradient: 'from-blue-500 to-purple-300',
     features: ['快速部署', '短期培训', '核心功能', '基础陪跑', '效果保障']
+  },
+  {
+    id: 3,
+    title: '全域营销赋能陪跑体系',
+    description: '专业团队手把手教学，确保落地效果',
+    icon: <Users className="w-8 h-8" />,
+    gradient: 'from-blue-600 to-purple-400',
+    features: ['线下培训', '实时答疑', '效果复盘', '策略优化', '长期支持']
   }
 ];
 
@@ -92,8 +94,12 @@ const aiProcessSteps = [
 ];
 
 export function ProductsSection() {
+  const [showQRCode, setShowQRCode] = useState(false);
+
   return (
-    <div className="relative min-h-screen bg-black text-white overflow-hidden">
+    <>
+      <Navigation />
+      <div className="relative min-h-screen bg-black text-white overflow-hidden">
       {/* Header */}
       <div className="relative z-10 pt-32 pb-16">
         <div className="container mx-auto px-4">
@@ -158,6 +164,21 @@ export function ProductsSection() {
                       <CardDescription className="text-gray-400 mt-2">
                         {product.description}
                       </CardDescription>
+                      {product.id === 1 && (
+                        <div className="mt-3 px-3 py-1 bg-gradient-to-r from-orange-500 to-red-500 text-white text-xs font-bold rounded-full inline-block">
+                          适合有线上获客经验企业
+                        </div>
+                      )}
+                      {product.id === 2 && (
+                        <div className="mt-3 px-3 py-1 bg-gradient-to-r from-purple-500 to-pink-500 text-white text-xs font-bold rounded-full inline-block">
+                          适合0基础企业短期见效并降本增效
+                        </div>
+                      )}
+                      {product.id === 3 && (
+                        <div className="mt-3 px-3 py-1 bg-gradient-to-r from-green-500 to-emerald-500 text-white text-xs font-bold rounded-full inline-block">
+                          适合0基础企业长期目标见效
+                        </div>
+                      )}
                     </div>
                   </CardHeader>
                   
@@ -172,6 +193,25 @@ export function ProductsSection() {
                     </div>
                     <Button 
                       className={`w-full bg-gradient-to-r ${product.gradient} hover:opacity-90 text-white font-semibold py-2 rounded-lg transition-all duration-300`}
+                      onClick={() => {
+                        let targetId = '';
+                        if (product.id === 1) {
+                          targetId = 'ai-system-detail';
+                        } else if (product.id === 2) {
+                          targetId = 'ai-short-term-detail';
+                        } else if (product.id === 3) {
+                          targetId = 'full-service-detail';
+                        }
+                        const element = document.getElementById(targetId);
+                        if (element) {
+                          const elementPosition = element.offsetTop;
+                          const offsetPosition = elementPosition - 100; // 导航栏高度偏移
+                          window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                          });
+                        }
+                      }}
                     >
                       了解详情
                     </Button>
@@ -184,7 +224,7 @@ export function ProductsSection() {
       </div>
 
       {/* 全域AI赋能流程 */}
-      <div className="relative z-10 pb-16">
+      <div id="ai-system-detail" className="relative z-10 pb-16">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -246,7 +286,7 @@ export function ProductsSection() {
               AI产品详细介绍
             </h2>
             <p className="text-gray-400 text-lg">
-              三大核心AI产品，全面提升企业获客效率
+              五大核心AI产品，助力从内容生产客户承接到销售转化全流程获客
             </p>
           </motion.div>
           
@@ -271,8 +311,119 @@ export function ProductsSection() {
         </div>
       </div>
 
+      {/* AI赋能+短期赋能陪跑介绍 */}
+      <div id="ai-short-term-detail" className="relative z-10 pb-16">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
+              AI赋能+短期赋能陪跑
+            </h2>
+            <p className="text-gray-400 text-lg">
+              AI工具使用+团队线下教学，带你快速拿到结果
+            </p>
+          </motion.div>
+          
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <Card className="bg-gray-900/50 border-gray-700/50 backdrop-blur-sm">
+              <CardContent className="p-8">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                  <div>
+                    <div className="flex items-center gap-4 mb-6">
+                      <div className="w-16 h-16 rounded-2xl bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center">
+                        <Rocket className="w-8 h-8 text-white" />
+                      </div>
+                      <div>
+                        <h3 className="text-2xl font-bold text-white">快速启动方案</h3>
+                        <p className="text-gray-400">30天快速见效，适合0线上获客基础企业</p>
+                      </div>
+                    </div>
+                    
+                    <div className="space-y-4">
+                      <div className="flex items-start gap-3">
+                        <div className="w-6 h-6 rounded-full bg-blue-500 flex items-center justify-center text-white text-sm font-bold flex-shrink-0">1</div>
+                        <div>
+                          <h4 className="text-white font-semibold">快速部署（3天）</h4>
+                          <p className="text-gray-400 text-sm">AI客服、CRM系统快速上线</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <div className="w-6 h-6 rounded-full bg-blue-500 flex items-center justify-center text-white text-sm font-bold flex-shrink-0">2</div>
+                        <div>
+                          <h4 className="text-white font-semibold">核心培训（7天）</h4>
+                          <p className="text-gray-400 text-sm">重点功能培训，快速上手</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <div className="w-6 h-6 rounded-full bg-blue-500 flex items-center justify-center text-white text-sm font-bold flex-shrink-0">3</div>
+                        <div>
+                          <h4 className="text-white font-semibold">效果跟踪与调优（50天）</h4>
+                          <p className="text-gray-400 text-sm">数据监控，策略调优</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <div className="w-6 h-6 rounded-full bg-blue-500 flex items-center justify-center text-white text-sm font-bold flex-shrink-0">4</div>
+                        <div>
+                          <h4 className="text-white font-semibold">全年产品支持</h4>
+                          <p className="text-gray-400 text-sm">持续技术支持与产品更新</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-gray-900/50 rounded-xl p-6 border border-gray-700/50">
+                    <h4 className="text-xl font-bold text-white mb-4">服务包含</h4>
+                    <div className="space-y-3">
+                      <div className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-green-400" />
+                        <span className="text-gray-300 text-sm">AI智能客服</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-green-400" />
+                        <span className="text-gray-300 text-sm">CRM客户管理搭建</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-green-400" />
+                        <span className="text-gray-300 text-sm">AI数字员工</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-green-400" />
+                        <span className="text-gray-300 text-sm">内容工厂+数字人本地部署</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-green-400" />
+                        <span className="text-gray-300 text-sm">60天专属陪跑</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-green-400" />
+                        <span className="text-gray-300 text-sm">投放与直播教学</span>
+                      </div>
+                    </div>
+                    
+                    <div className="mt-6 pt-4 border-t border-gray-700">
+                      <div className="text-center">
+                        <div className="text-lg font-semibold text-blue-400 mb-1">联系销售了解更多详情</div>
+                        <div className="text-gray-400 text-sm">定制化方案报价</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </motion.div>
+        </div>
+      </div>
+
       {/* 全域赋能获客陪跑服务介绍 */}
-      <div className="relative z-10 pb-16">
+      <div id="full-service-detail" className="relative z-10 pb-16">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -284,7 +435,7 @@ export function ProductsSection() {
               全域赋能获客陪跑服务
             </h2>
             <p className="text-gray-400 text-lg">
-              专业团队全程陪跑，确保AI工具落地见效
+              专业团队针对企业定制化陪跑，助力企业实现真实转化
             </p>
           </motion.div>
           
@@ -372,8 +523,8 @@ export function ProductsSection() {
         </div>
       </div>
 
-      {/* AI赋能+短期赋能陪跑介绍 */}
-      <div className="relative z-10 pb-16">
+      {/* 服务承诺 */}
+      <div className="relative z-10 pb-20">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -382,134 +533,170 @@ export function ProductsSection() {
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
-              AI赋能+短期赋能陪跑
+              服务承诺
             </h2>
             <p className="text-gray-400 text-lg">
-              轻量化解决方案，快速启动，短期见效
+              我们承诺为每一位客户提供最优质的服务体验
             </p>
           </motion.div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              whileHover={{ 
+                scale: 1.05,
+                transition: { duration: 0.2 }
+              }}
+              className="group"
+            >
+              <Card className="h-full bg-gradient-to-br from-gray-900/80 to-gray-800/80 border-gray-700/50 backdrop-blur-sm text-center hover:border-blue-500/50 transition-all duration-300 group-hover:shadow-xl group-hover:shadow-blue-500/20">
+                <CardContent className="p-8">
+                  <motion.div 
+                    className="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-br from-blue-500/30 to-blue-600/30 flex items-center justify-center group-hover:from-blue-500/50 group-hover:to-blue-600/50 transition-all duration-300"
+                    whileHover={{ rotate: 360 }}
+                    transition={{ duration: 0.6 }}
+                  >
+                    <div className="text-3xl">🎯</div>
+                  </motion.div>
+                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-blue-300 transition-colors duration-300">双轨服务</h3>
+                  <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300">线下培训+线上实时答疑</p>
+                </CardContent>
+              </Card>
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              whileHover={{ 
+                scale: 1.05,
+                transition: { duration: 0.2 }
+              }}
+              className="group"
+            >
+              <Card className="h-full bg-gradient-to-br from-gray-900/80 to-gray-800/80 border-gray-700/50 backdrop-blur-sm text-center hover:border-green-500/50 transition-all duration-300 group-hover:shadow-xl group-hover:shadow-green-500/20">
+                <CardContent className="p-8">
+                  <motion.div 
+                    className="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-br from-blue-500/30 to-blue-600/30 flex items-center justify-center group-hover:from-blue-500/50 group-hover:to-blue-600/50 transition-all duration-300"
+                    whileHover={{ rotate: 360 }}
+                    transition={{ duration: 0.6 }}
+                  >
+                    <div className="text-3xl">💰</div>
+                  </motion.div>
+                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-green-300 transition-colors duration-300">效果保障</h3>
+                  <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300">首月无效全额退款</p>
+                </CardContent>
+              </Card>
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              whileHover={{ 
+                scale: 1.05,
+                transition: { duration: 0.2 }
+              }}
+              className="group"
+            >
+              <Card className="h-full bg-gradient-to-br from-gray-900/80 to-gray-800/80 border-gray-700/50 backdrop-blur-sm text-center hover:border-purple-500/50 transition-all duration-300 group-hover:shadow-xl group-hover:shadow-purple-500/20">
+                <CardContent className="p-8">
+                  <motion.div 
+                    className="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-br from-blue-500/30 to-blue-600/30 flex items-center justify-center group-hover:from-blue-500/50 group-hover:to-blue-600/50 transition-all duration-300"
+                    whileHover={{ rotate: 360 }}
+                    transition={{ duration: 0.6 }}
+                  >
+                    <div className="text-3xl">🔄</div>
+                  </motion.div>
+                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-purple-300 transition-colors duration-300">持续赋能</h3>
+                  <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300">持续复盘+策略迭代</p>
+                </CardContent>
+              </Card>
+            </motion.div>
+          </div>
           
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            className="text-center mt-12"
           >
-            <Card className="bg-gradient-to-r from-green-900/30 to-emerald-900/30 border-green-500/20 backdrop-blur-sm">
-              <CardContent className="p-8">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-                  <div>
-                    <div className="flex items-center gap-4 mb-6">
-                      <div className="w-16 h-16 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-500 flex items-center justify-center">
-                        <Rocket className="w-8 h-8 text-white" />
-                      </div>
-                      <div>
-                        <h3 className="text-2xl font-bold text-white">快速启动方案</h3>
-                        <p className="text-gray-400">30天快速见效，适合初次尝试AI获客的企业</p>
-                      </div>
-                    </div>
-                    
-                    <div className="space-y-4">
-                      <div className="flex items-start gap-3">
-                        <div className="w-6 h-6 rounded-full bg-green-500 flex items-center justify-center text-white text-sm font-bold flex-shrink-0">1</div>
-                        <div>
-                          <h4 className="text-white font-semibold">快速部署（3天）</h4>
-                          <p className="text-gray-400 text-sm">AI客服、CRM系统快速上线</p>
-                        </div>
-                      </div>
-                      <div className="flex items-start gap-3">
-                        <div className="w-6 h-6 rounded-full bg-green-500 flex items-center justify-center text-white text-sm font-bold flex-shrink-0">2</div>
-                        <div>
-                          <h4 className="text-white font-semibold">核心培训（7天）</h4>
-                          <p className="text-gray-400 text-sm">重点功能培训，快速上手</p>
-                        </div>
-                      </div>
-                      <div className="flex items-start gap-3">
-                        <div className="w-6 h-6 rounded-full bg-green-500 flex items-center justify-center text-white text-sm font-bold flex-shrink-0">3</div>
-                        <div>
-                          <h4 className="text-white font-semibold">效果跟踪（20天）</h4>
-                          <p className="text-gray-400 text-sm">数据监控，策略调优</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div className="bg-gray-900/50 rounded-xl p-6 border border-gray-700/50">
-                    <h4 className="text-xl font-bold text-white mb-4">服务包含</h4>
-                    <div className="space-y-3">
-                      <div className="flex items-center gap-2">
-                        <CheckCircle className="w-4 h-4 text-green-400" />
-                        <span className="text-gray-300 text-sm">AI智能客服基础版</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <CheckCircle className="w-4 h-4 text-green-400" />
-                        <span className="text-gray-300 text-sm">CRM客户管理系统</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <CheckCircle className="w-4 h-4 text-green-400" />
-                        <span className="text-gray-300 text-sm">内容生成工具</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <CheckCircle className="w-4 h-4 text-green-400" />
-                        <span className="text-gray-300 text-sm">30天专属陪跑</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <CheckCircle className="w-4 h-4 text-green-400" />
-                        <span className="text-gray-300 text-sm">效果保障承诺</span>
-                      </div>
-                    </div>
-                    
-                    <div className="mt-6 pt-4 border-t border-gray-700">
-                      <div className="text-center">
-                        <div className="text-2xl font-bold text-green-400 mb-1">￥9,800</div>
-                        <div className="text-gray-400 text-sm">30天快速启动</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Button 
+                size="lg" 
+                className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white px-12 py-4 rounded-full text-lg font-bold shadow-2xl hover:shadow-blue-500/25 transition-all duration-300"
+                onClick={() => setShowQRCode(true)}
+              >
+                领取定制化解决方案
+              </Button>
+            </motion.div>
           </motion.div>
         </div>
       </div>
 
-      {/* 服务承诺 */}
-      <div className="relative z-10 pb-20">
-        <div className="container mx-auto px-4">
+      {/* 微信二维码弹窗 */}
+      {showQRCode && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+          onClick={() => setShowQRCode(false)}
+        >
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="text-center bg-gradient-to-r from-blue-900/30 to-purple-900/30 rounded-2xl p-12 border border-blue-500/20 backdrop-blur-sm"
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.8, opacity: 0 }}
+            transition={{ type: "spring", damping: 20, stiffness: 300 }}
+            className="bg-white rounded-2xl p-8 max-w-md w-full mx-auto relative"
+            onClick={(e) => e.stopPropagation()}
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-              服务承诺
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-              <div className="text-center">
-                <div className="text-4xl mb-4">🎯</div>
-                <h3 className="text-xl font-semibold text-white mb-2">双轨服务</h3>
-                <p className="text-gray-300">线下培训+线上实时答疑</p>
+            <button
+              onClick={() => setShowQRCode(false)}
+              className="absolute top-4 right-4 w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors duration-200"
+            >
+              <X className="w-5 h-5 text-gray-600" />
+            </button>
+            
+            <div className="text-center">
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                扫码获取定制化方案
+              </h3>
+              <p className="text-gray-600 mb-6">
+                添加企业微信，获取专属AI获客解决方案
+              </p>
+              
+              <div className="bg-gray-50 rounded-xl p-4 mb-6">
+                <img
+                  src="/微信二维码.jpg"
+                  alt="微信二维码"
+                  className="w-48 h-48 mx-auto rounded-lg shadow-md"
+                />
               </div>
-              <div className="text-center">
-                <div className="text-4xl mb-4">💰</div>
-                <h3 className="text-xl font-semibold text-white mb-2">效果保障</h3>
-                <p className="text-gray-300">首月无效全额退款</p>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl mb-4">🔄</div>
-                <h3 className="text-xl font-semibold text-white mb-2">持续赋能</h3>
-                <p className="text-gray-300">持续复盘+策略迭代</p>
+              
+              <div className="text-sm text-gray-500">
+                <p>扫描二维码或保存图片</p>
+                <p>专业顾问1对1服务</p>
               </div>
             </div>
-            <Button 
-              size="lg"
-              className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-bold px-12 py-4 rounded-full text-lg shadow-2xl hover:shadow-blue-500/25 transition-all duration-300"
-            >
-              领取定制化解决方案
-            </Button>
           </motion.div>
+        </motion.div>
+      )}
+      
+      {/* 版权信息 */}
+      <div className="bg-gray-900/80 border-t border-gray-700/50 py-6">
+        <div className="container mx-auto px-4 text-center">
+          <p className="text-gray-400 text-sm">
+            © 2025 成都一郅映画文化传媒有限公司版权所有
+          </p>
         </div>
       </div>
-    </div>
+      </div>
+    </>
   );
 }

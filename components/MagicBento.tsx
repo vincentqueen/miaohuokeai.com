@@ -32,18 +32,6 @@ const MOBILE_BREAKPOINT = 768;
 const cardData: BentoCardProps[] = [
   {
     color: "#060010",
-    title: "AI智能客服",
-    description: "AI销冠上岗，7×24小时接待客户，两三句就让客户留下客资",
-    label: "智能客服",
-  },
-  {
-    color: "#060010",
-    title: "CRM客户管理系统",
-    description: "全渠道客户信息整合，销售数据可视化分析",
-    label: "CRM系统",
-  },
-  {
-    color: "#060010",
     title: "AI数字员工",
     description: "自研AI数字员工-为企业专属定制，为企业解决全域全流程获客难题",
     label: "数字员工",
@@ -59,6 +47,18 @@ const cardData: BentoCardProps[] = [
     title: "数字人短视频",
     description: "真人拍摄一次，AI生成无限视频内容",
     label: "数字人视频",
+  },
+  {
+    color: "#060010",
+    title: "AI智能客服",
+    description: "AI销冠上岗，7×24小时接待客户，两三句就让客户留下客资",
+    label: "智能客服",
+  },
+  {
+    color: "#060010",
+    title: "CRM客户管理系统",
+    description: "全渠道客户信息整合，销售数据可视化分析",
+    label: "CRM系统",
   },
 ];
 
@@ -351,16 +351,16 @@ const MagicBento: React.FC<BentoProps> = ({
         const getCardClassName = (index: number) => {
            const baseClass = "bento-card bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-xl p-6 hover:border-purple-500/50 transition-all duration-300";
            switch (index) {
-             case 0: // AI智能客服 - 占据2列
-               return `${baseClass} lg:col-span-2`;
-             case 1: // CRM系统 - 占据1列
-               return `${baseClass}`;
-             case 2: // AI数字员工 - 占据1列，但高度较大
+             case 0: // AI数字员工 - 占据1列，但高度较大
                return `${baseClass} lg:row-span-2`;
-             case 3: // AI内容工厂 - 占据2列
+             case 1: // AI内容工厂 - 占据2列
                return `${baseClass} lg:col-span-2`;
-             case 4: // 数字人短视频 - 占据2列
+             case 2: // 数字人短视频 - 占据2列
                return `${baseClass} lg:col-span-2`;
+             case 3: // AI智能客服 - 占据2列
+               return `${baseClass} lg:col-span-2`;
+             case 4: // CRM系统 - 占据1列
+               return `${baseClass}`;
              default:
                return baseClass;
            }
@@ -380,6 +380,29 @@ const MagicBento: React.FC<BentoProps> = ({
           <div className="flex items-start gap-6 mb-6">
             <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center flex-shrink-0">
               {index === 0 && (
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-users w-6 h-6" aria-hidden="true">
+                  <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                  <path d="M16 3.128a4 4 0 0 1 0 7.744"></path>
+                  <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                </svg>
+              )}
+              {index === 1 && (
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-factory w-6 h-6" aria-hidden="true">
+                  <path d="M12 16h.01"></path>
+                  <path d="M16 16h.01"></path>
+                  <path d="M3 19a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8.5a.5.5 0 0 0-.769-.422l-4.462 2.844A.5.5 0 0 1 15 10.5v-2a.5.5 0 0 0-.769-.422L9.77 10.922A.5.5 0 0 1 9 10.5V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2z"></path>
+                  <path d="M8 16h.01"></path>
+                </svg>
+              )}
+              {index === 2 && (
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-video w-6 h-6" aria-hidden="true">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14,2 14,8 20,8"></polyline>
+                  <path d="M12 18v-6l4 3-4 3z"></path>
+                </svg>
+              )}
+              {index === 3 && (
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-bot w-6 h-6" aria-hidden="true">
                   <path d="M12 8V4H8"></path>
                   <rect width="16" height="12" x="4" y="8" rx="2"></rect>
@@ -389,34 +412,11 @@ const MagicBento: React.FC<BentoProps> = ({
                   <path d="M9 13v2"></path>
                 </svg>
               )}
-              {index === 1 && (
+              {index === 4 && (
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-database w-6 h-6" aria-hidden="true">
                   <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
                   <path d="M3 5v14a9 3 0 0 0 18 0V5"></path>
                   <path d="M3 12a9 3 0 0 0 18 0"></path>
-                </svg>
-              )}
-              {index === 2 && (
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-users w-6 h-6" aria-hidden="true">
-                  <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-                  <path d="M16 3.128a4 4 0 0 1 0 7.744"></path>
-                  <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
-                  <circle cx="9" cy="7" r="4"></circle>
-                </svg>
-              )}
-              {index === 3 && (
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-factory w-6 h-6" aria-hidden="true">
-                  <path d="M12 16h.01"></path>
-                  <path d="M16 16h.01"></path>
-                  <path d="M3 19a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8.5a.5.5 0 0 0-.769-.422l-4.462 2.844A.5.5 0 0 1 15 10.5v-2a.5.5 0 0 0-.769-.422L9.77 10.922A.5.5 0 0 1 9 10.5V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2z"></path>
-                  <path d="M8 16h.01"></path>
-                </svg>
-              )}
-              {index === 4 && (
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-video w-6 h-6" aria-hidden="true">
-                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                  <polyline points="14,2 14,8 20,8"></polyline>
-                  <path d="M12 18v-6l4 3-4 3z"></path>
                 </svg>
               )}
             </div>
@@ -429,46 +429,6 @@ const MagicBento: React.FC<BentoProps> = ({
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
             <div className="space-y-3">
               {index === 0 && (
-                <>
-                  <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-blue-400 mt-2 flex-shrink-0"></div>
-                    <p className="text-gray-300 text-sm leading-relaxed">高情商回复，复杂问题回复</p>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-blue-400 mt-2 flex-shrink-0"></div>
-                    <p className="text-gray-300 text-sm leading-relaxed">接入抖音后台，全天候无人回复，自动获取客资</p>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-blue-400 mt-2 flex-shrink-0"></div>
-                    <p className="text-gray-300 text-sm leading-relaxed">自动调用实时更新的知识库，精准人性回答</p>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-blue-400 mt-2 flex-shrink-0"></div>
-                    <p className="text-gray-300 text-sm leading-relaxed">客资自动写入AI CRM系统，实现快速跟进与可视化管理</p>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-blue-400 mt-2 flex-shrink-0"></div>
-                    <p className="text-gray-300 text-sm leading-relaxed">针对行业与企业独家定制，回复精准如金牌销售</p>
-                  </div>
-                </>
-              )}
-              {index === 1 && (
-                <>
-                  <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-blue-400 mt-2 flex-shrink-0"></div>
-                    <p className="text-gray-300 text-sm leading-relaxed">客户信息全记录：完整跟踪客户生命周期</p>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-blue-400 mt-2 flex-shrink-0"></div>
-                    <p className="text-gray-300 text-sm leading-relaxed">销售数据可视化：实时分析转化率和业绩表现</p>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-blue-400 mt-2 flex-shrink-0"></div>
-                    <p className="text-gray-300 text-sm leading-relaxed">多端同步：手机/电脑实时查看，随时随地跟进</p>
-                  </div>
-                </>
-              )}
-              {index === 2 && (
                 <>
                   <div className="flex items-start gap-3">
                     <div className="w-2 h-2 rounded-full bg-blue-400 mt-2 flex-shrink-0"></div>
@@ -496,51 +456,23 @@ const MagicBento: React.FC<BentoProps> = ({
                   </div>
                 </>
               )}
-              {index === 3 && (
+              {index === 1 && (
                 <>
-                  <div className="mb-4">
-                    <h5 className="text-blue-300 font-semibold mb-2">短视频创作内容工厂</h5>
-                    <div className="space-y-2">
-                      <div className="flex items-start gap-3">
-                        <div className="w-2 h-2 rounded-full bg-blue-400 mt-2 flex-shrink-0"></div>
-                        <div>
-                          <p className="text-gray-300 text-sm leading-relaxed"><strong>以前：</strong>每次告诉DeepSeek想怎么写，还需要解释半天，有很多时候DeepSeek还会理解错误，给出不好的结果。</p>
-                          <p className="text-gray-300 text-sm leading-relaxed mt-1"><strong>现在：</strong>一键生成爆款脚本，分镜，发布标题，发布文案等，按照企业知识生成符合投放获客逻辑的脚本。一次性可生成百条。一名员工可管理数十个账号矩阵。</p>
-                        </div>
-                      </div>
-                      <div className="flex items-start gap-3">
-                        <div className="w-2 h-2 rounded-full bg-blue-400 mt-2 flex-shrink-0"></div>
-                        <p className="text-gray-300 text-sm leading-relaxed">内容一键生成：分镜，发布标题，发布文案一键生成</p>
-                      </div>
-                      <div className="flex items-start gap-3">
-                        <div className="w-2 h-2 rounded-full bg-blue-400 mt-2 flex-shrink-0"></div>
-                        <p className="text-gray-300 text-sm leading-relaxed">数据分析：智能分析内容表现，优化创作策略</p>
-                      </div>
-                      <div className="flex items-start gap-3">
-                        <div className="w-2 h-2 rounded-full bg-blue-400 mt-2 flex-shrink-0"></div>
-                        <p className="text-gray-300 text-sm leading-relaxed">账号定位：精准定位目标用户群体</p>
-                      </div>
-                    </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 rounded-full bg-blue-400 mt-2 flex-shrink-0"></div>
+                    <p className="text-gray-300 text-sm leading-relaxed">短视频创作：一键生成爆款脚本、分镜、标题文案</p>
                   </div>
-                  <div>
-                    <h5 className="text-blue-300 font-semibold mb-2">小红书笔记创作</h5>
-                    <div className="space-y-2">
-                      <div className="flex items-start gap-3">
-                        <div className="w-2 h-2 rounded-full bg-blue-400 mt-2 flex-shrink-0"></div>
-                        <div>
-                          <p className="text-gray-300 text-sm leading-relaxed"><strong>以前：</strong>半天想不出一篇小红书文案，员工没精力参与，难以坚持发布！</p>
-                          <p className="text-gray-300 text-sm leading-relaxed mt-1"><strong>现在：</strong>一键生成百条优质笔记，所有员工都能成为优秀的企业达人！每个员工都能为企业发布笔记！</p>
-                        </div>
-                      </div>
-                      <div className="flex items-start gap-3">
-                        <div className="w-2 h-2 rounded-full bg-blue-400 mt-2 flex-shrink-0"></div>
-                        <p className="text-gray-300 text-sm leading-relaxed">一键爆款：智能生成高质量小红书内容</p>
-                      </div>
-                    </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 rounded-full bg-blue-400 mt-2 flex-shrink-0"></div>
+                    <p className="text-gray-300 text-sm leading-relaxed">小红书笔记：智能生成优质内容，批量发布</p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 rounded-full bg-blue-400 mt-2 flex-shrink-0"></div>
+                    <p className="text-gray-300 text-sm leading-relaxed">数据分析：内容表现分析，优化创作策略</p>
                   </div>
                 </>
               )}
-              {index === 4 && (
+              {index === 2 && (
                 <>
                   <div className="flex items-start gap-3">
                     <div className="w-2 h-2 rounded-full bg-blue-400 mt-2 flex-shrink-0"></div>
@@ -548,11 +480,51 @@ const MagicBento: React.FC<BentoProps> = ({
                   </div>
                   <div className="flex items-start gap-3">
                     <div className="w-2 h-2 rounded-full bg-blue-400 mt-2 flex-shrink-0"></div>
-                    <p className="text-gray-300 text-sm leading-relaxed">24类数字模特：产品介绍、活动宣传多场景应用</p>
+                    <p className="text-gray-300 text-sm leading-relaxed">数字分身帮你打工</p>
                   </div>
                   <div className="flex items-start gap-3">
                     <div className="w-2 h-2 rounded-full bg-blue-400 mt-2 flex-shrink-0"></div>
-                    <p className="text-gray-300 text-sm leading-relaxed">本地部署：数据安全，支持个性化定制</p>
+                    <p className="text-gray-300 text-sm leading-relaxed">本地部署：一次部署，永久使用</p>
+                  </div>
+                </>
+              )}
+              {index === 3 && (
+                <>
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 rounded-full bg-blue-400 mt-2 flex-shrink-0"></div>
+                    <p className="text-gray-300 text-sm leading-relaxed">高情商回复，复杂问题回复</p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 rounded-full bg-blue-400 mt-2 flex-shrink-0"></div>
+                    <p className="text-gray-300 text-sm leading-relaxed">接入抖音后台，全天候无人回复，自动获取客资</p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 rounded-full bg-blue-400 mt-2 flex-shrink-0"></div>
+                    <p className="text-gray-300 text-sm leading-relaxed">自动调用实时更新的知识库，精准人性回答</p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 rounded-full bg-blue-400 mt-2 flex-shrink-0"></div>
+                    <p className="text-gray-300 text-sm leading-relaxed">客资自动写入AI CRM系统，实现快速跟进与可视化管理</p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 rounded-full bg-blue-400 mt-2 flex-shrink-0"></div>
+                    <p className="text-gray-300 text-sm leading-relaxed">针对行业与企业独家定制，回复精准如金牌销售</p>
+                  </div>
+                </>
+              )}
+              {index === 4 && (
+                <>
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 rounded-full bg-blue-400 mt-2 flex-shrink-0"></div>
+                    <p className="text-gray-300 text-sm leading-relaxed">客户信息全记录：完整跟踪客户生命周期</p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 rounded-full bg-blue-400 mt-2 flex-shrink-0"></div>
+                    <p className="text-gray-300 text-sm leading-relaxed">销售数据可视化：实时分析转化率和业绩表现</p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 rounded-full bg-blue-400 mt-2 flex-shrink-0"></div>
+                    <p className="text-gray-300 text-sm leading-relaxed">多端同步：手机/电脑实时查看，随时随地跟进</p>
                   </div>
                 </>
               )}
@@ -560,23 +532,23 @@ const MagicBento: React.FC<BentoProps> = ({
             <div className="bg-gradient-to-r from-green-500/10 to-blue-500/10 rounded-lg p-4 border border-green-500/20">
               <h4 className="text-green-300 font-semibold mb-2">效果案例</h4>
               {index === 0 && (
+                <p className="text-gray-300 text-sm leading-relaxed">家居品牌「金卡瑞」：老板一人轻松拿捏，每月省去上万元</p>
+              )}
+              {index === 1 && (
+                <p className="text-gray-300 text-sm leading-relaxed">家具某品牌：小红书单人日产100条优质内容，矩阵账号批量发布，实现搜索覆盖</p>
+              )}
+              {index === 2 && (
+                <p className="text-gray-300 text-sm leading-relaxed">某家具品牌老板，使用数字人视频，3分钟完成拍摄，视频投放日获客34组</p>
+              )}
+              {index === 3 && (
                 <div className="space-y-2">
                   <p className="text-gray-300 text-sm leading-relaxed">家居品牌「金卡瑞」：抖音咨询10秒响应，留资率提升320%</p>
                   <p className="text-gray-300 text-sm leading-relaxed">家居品牌「英伦匠人」：凌晨自动聊，老板终于能睡觉</p>
                   <p className="text-gray-300 text-sm leading-relaxed">板材品牌「大参林」：同时接待5组咨询，一天聊出30个客资</p>
                 </div>
               )}
-              {index === 1 && (
-                <p className="text-gray-300 text-sm leading-relaxed">板材品牌「大参林」：10余个销售分配客资井然有序，老板一眼查看数据报表情况</p>
-              )}
-              {index === 2 && (
-                <p className="text-gray-300 text-sm leading-relaxed">家居品牌「金卡瑞」：老板一人轻松拿捏，每月省去上万元</p>
-              )}
-              {index === 3 && (
-                <p className="text-gray-300 text-sm leading-relaxed">家具某品牌：小红书单人日产100条优质内容，矩阵账号批量发布，实现搜索覆盖</p>
-              )}
               {index === 4 && (
-                <p className="text-gray-300 text-sm leading-relaxed">科技公司「小米」：数字人视频播放量提升300%，节省80%拍摄成本</p>
+                <p className="text-gray-300 text-sm leading-relaxed">板材品牌「大参林」：10余个销售分配客资井然有序，老板一眼查看数据报表情况</p>
               )}
             </div>
           </div>
