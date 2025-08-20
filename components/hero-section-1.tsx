@@ -114,15 +114,18 @@ export function HeroSection() {
 
                                 <AnimatedGroup
                                     variants={{
+                                        ...transitionVariants,
                                         container: {
+                                            ...transitionVariants.container,
                                             visible: {
+                                                ...transitionVariants.container.visible,
                                                 transition: {
+                                                    ...transitionVariants.container.visible.transition,
                                                     staggerChildren: 0.05,
                                                     delayChildren: 0.75,
                                                 },
                                             },
                                         },
-                                        ...transitionVariants,
                                     }}
                                     className="mt-12 flex flex-col items-center justify-center gap-2 md:flex-row">
                                     <div
