@@ -156,15 +156,18 @@ export function HeroSection() {
 
                         <AnimatedGroup
                             variants={{
+                                ...transitionVariants,
                                 container: {
+                                    ...transitionVariants.container,
                                     visible: {
+                                        ...transitionVariants.container.visible,
                                         transition: {
+                                            ...transitionVariants.container.visible.transition,
                                             staggerChildren: 0.05,
                                             delayChildren: 0.75,
                                         },
                                     },
                                 },
-                                ...transitionVariants,
                             }}>
                             <div className="relative -mr-56 mt-8 overflow-hidden px-2 sm:mr-0 sm:mt-12 md:mt-20">
                                 {/* 核心优势模块 - 上方 */}
