@@ -87,17 +87,17 @@ export default function PricingPage() {
                   >
                     {plan.popular && (
                       <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
-                        <span className="bg-gradient-to-r from-blue-500 to-purple-500 text-white px-4 py-1 rounded-full text-sm font-semibold">
+                        <span className="bg-gradient-to-r from-slate-600 to-slate-700 text-white px-4 py-1 rounded-full text-sm font-semibold">
                           最受欢迎
                         </span>
                       </div>
                     )}
-                    <Card className={`w-full flex flex-col bg-gradient-to-br from-gray-900/80 to-gray-800/80 border-gray-700/50 backdrop-blur-sm transition-all duration-300 hover:border-purple-500/50 hover:shadow-xl hover:shadow-purple-500/20 ${
-                      plan.popular ? 'border-purple-500/50 shadow-lg shadow-purple-500/20' : ''
+                    <Card className={`w-full flex flex-col bg-gradient-to-br from-gray-900/80 to-gray-800/80 border-gray-700/50 backdrop-blur-sm transition-all duration-300 hover:border-slate-500/50 hover:shadow-xl hover:shadow-slate-500/20 ${
+                      plan.popular ? 'border-slate-500/50 shadow-lg shadow-slate-500/20' : ''
                     }`}>
                       <CardHeader className="text-center pb-6 flex-shrink-0">
-                        <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-blue-500/30 to-purple-600/30 flex items-center justify-center">
-                          <IconComponent className="w-8 h-8 text-blue-400" />
+                        <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-blue-600/30 to-blue-700/30 flex items-center justify-center">
+                          <IconComponent className="w-8 h-8 text-slate-400" />
                         </div>
                         <CardTitle className="text-2xl lg:text-3xl text-white mb-3 leading-tight">{plan.name}</CardTitle>
                         <div className="mb-4 min-h-[3rem] flex items-center justify-center">
@@ -121,7 +121,7 @@ export default function PricingPage() {
                             <Button
                               className={`w-full py-3 rounded-lg font-semibold transition-all duration-300 ${
                                 plan.popular
-                                  ? 'bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white'
+                                  ? 'bg-gradient-to-r from-slate-600 to-slate-700 hover:from-slate-700 hover:to-slate-800 text-white'
                                   : 'bg-gray-700 hover:bg-gray-600 text-white'
                               }`}
                             >

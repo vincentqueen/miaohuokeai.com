@@ -1,12 +1,13 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { AnimatedGroup } from '@/components/ui/animated-group';
 // import { BeamsBackground } from '@/components/ui/beams-background';
-import { ArrowRight, CheckCircle, Zap, Users, Factory, Bot, Rocket, X } from 'lucide-react';
+import { ArrowRight, CheckCircle, Zap, Users, Rocket, X } from 'lucide-react';
 import MagicBento from './MagicBento';
 import { Navigation } from './navigation';
 
@@ -17,7 +18,7 @@ const mainProducts = [
     title: '全域AI赋能获客体系',
     description: 'AI+人工双轨服务，全流程获客解决方案',
     icon: <Zap className="w-8 h-8" />,
-    gradient: 'from-blue-700 to-purple-500',
+    gradient: 'from-blue-600 to-purple-600',
     features: ['AI智能客服', 'CRM客户管理', '内容工厂', '数字人视频', '全程陪跑']
   },
   {
@@ -25,7 +26,7 @@ const mainProducts = [
     title: 'AI赋能+短期赋能陪跑',
     description: '快速启动，短期见效的轻量化解决方案',
     icon: <Rocket className="w-8 h-8" />,
-    gradient: 'from-blue-500 to-purple-300',
+    gradient: 'from-blue-500 to-blue-700',
     features: ['快速部署', '短期培训', '核心功能', '基础陪跑', '效果保障']
   },
   {
@@ -33,7 +34,7 @@ const mainProducts = [
     title: '全域营销赋能陪跑体系',
     description: '专业团队手把手教学，确保落地效果',
     icon: <Users className="w-8 h-8" />,
-    gradient: 'from-blue-600 to-purple-400',
+    gradient: 'from-blue-700 to-purple-700',
     features: ['线下培训', '实时答疑', '效果复盘', '策略优化', '长期支持']
   }
 ];
@@ -94,6 +95,7 @@ const aiProcessSteps = [
 ];
 
 export function ProductsSection() {
+  const router = useRouter();
   const [showQRCode, setShowQRCode] = useState(false);
 
   return (
@@ -113,7 +115,7 @@ export function ProductsSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
-              className="text-5xl md:text-7xl font-black mb-8 bg-gradient-to-r from-blue-800 to-purple-500 bg-clip-text text-transparent"
+              className="text-5xl md:text-7xl font-black mb-8 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
             >
               产品体系
             </motion.h1>
@@ -165,17 +167,17 @@ export function ProductsSection() {
                         {product.description}
                       </CardDescription>
                       {product.id === 1 && (
-                        <div className="mt-3 px-3 py-1 bg-gradient-to-r from-orange-500 to-red-500 text-white text-xs font-bold rounded-full inline-block">
+                        <div className="mt-3 px-3 py-1 bg-slate-700 text-gray-200 text-xs font-medium rounded-full inline-block border border-slate-600">
                           适合有线上获客经验企业
                         </div>
                       )}
                       {product.id === 2 && (
-                        <div className="mt-3 px-3 py-1 bg-gradient-to-r from-purple-500 to-pink-500 text-white text-xs font-bold rounded-full inline-block">
+                        <div className="mt-3 px-3 py-1 bg-slate-700 text-gray-200 text-xs font-medium rounded-full inline-block border border-slate-600">
                           适合0基础企业短期见效并降本增效
                         </div>
                       )}
                       {product.id === 3 && (
-                        <div className="mt-3 px-3 py-1 bg-gradient-to-r from-green-500 to-emerald-500 text-white text-xs font-bold rounded-full inline-block">
+                        <div className="mt-3 px-3 py-1 bg-slate-700 text-gray-200 text-xs font-medium rounded-full inline-block border border-slate-600">
                           适合0基础企业长期目标见效
                         </div>
                       )}
@@ -285,9 +287,23 @@ export function ProductsSection() {
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
               AI产品详细介绍
             </h2>
-            <p className="text-gray-400 text-lg">
+            <p className="text-gray-400 text-lg mb-6">
               五大核心AI产品，助力从内容生产客户承接到销售转化全流程获客
             </p>
+            
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="flex justify-center mb-8"
+            >
+              <Button 
+                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold px-8 py-3 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                onClick={() => window.open('https://easevision.feishu.cn/share/base/form/shrcnsfdHd9pTbe3loYp2YI67mh', '_blank')}
+              >
+                预约展示
+              </Button>
+            </motion.div>
           </motion.div>
           
           <motion.div
@@ -338,7 +354,7 @@ export function ProductsSection() {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
                   <div>
                     <div className="flex items-center gap-4 mb-6">
-                      <div className="w-16 h-16 rounded-2xl bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center">
+                      <div className="w-16 h-16 rounded-2xl bg-gradient-to-r from-slate-600 to-slate-700 flex items-center justify-center">
                         <Rocket className="w-8 h-8 text-white" />
                       </div>
                       <div>
@@ -349,28 +365,28 @@ export function ProductsSection() {
                     
                     <div className="space-y-4">
                       <div className="flex items-start gap-3">
-                        <div className="w-6 h-6 rounded-full bg-blue-500 flex items-center justify-center text-white text-sm font-bold flex-shrink-0">1</div>
+                        <div className="w-6 h-6 rounded-full bg-slate-600 flex items-center justify-center text-white text-sm font-bold flex-shrink-0">1</div>
                         <div>
                           <h4 className="text-white font-semibold">快速部署（3天）</h4>
                           <p className="text-gray-400 text-sm">AI客服、CRM系统快速上线</p>
                         </div>
                       </div>
                       <div className="flex items-start gap-3">
-                        <div className="w-6 h-6 rounded-full bg-blue-500 flex items-center justify-center text-white text-sm font-bold flex-shrink-0">2</div>
+                        <div className="w-6 h-6 rounded-full bg-slate-600 flex items-center justify-center text-white text-sm font-bold flex-shrink-0">2</div>
                         <div>
                           <h4 className="text-white font-semibold">核心培训（7天）</h4>
                           <p className="text-gray-400 text-sm">重点功能培训，快速上手</p>
                         </div>
                       </div>
                       <div className="flex items-start gap-3">
-                        <div className="w-6 h-6 rounded-full bg-blue-500 flex items-center justify-center text-white text-sm font-bold flex-shrink-0">3</div>
+                        <div className="w-6 h-6 rounded-full bg-slate-600 flex items-center justify-center text-white text-sm font-bold flex-shrink-0">3</div>
                         <div>
                           <h4 className="text-white font-semibold">效果跟踪与调优（50天）</h4>
                           <p className="text-gray-400 text-sm">数据监控，策略调优</p>
                         </div>
                       </div>
                       <div className="flex items-start gap-3">
-                        <div className="w-6 h-6 rounded-full bg-blue-500 flex items-center justify-center text-white text-sm font-bold flex-shrink-0">4</div>
+                        <div className="w-6 h-6 rounded-full bg-slate-600 flex items-center justify-center text-white text-sm font-bold flex-shrink-0">4</div>
                         <div>
                           <h4 className="text-white font-semibold">全年产品支持</h4>
                           <p className="text-gray-400 text-sm">持续技术支持与产品更新</p>
@@ -410,7 +426,12 @@ export function ProductsSection() {
                     
                     <div className="mt-6 pt-4 border-t border-gray-700">
                       <div className="text-center">
-                        <div className="text-lg font-semibold text-blue-400 mb-1">联系销售了解更多详情</div>
+                        <Button 
+                          className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-semibold px-6 py-2 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl mb-1"
+                          onClick={() => router.push('/contact')}
+                        >
+                          联系销售了解更多详情
+                        </Button>
                         <div className="text-gray-400 text-sm">定制化方案报价</div>
                       </div>
                     </div>
@@ -434,9 +455,15 @@ export function ProductsSection() {
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
               全域赋能获客陪跑服务
             </h2>
-            <p className="text-gray-400 text-lg">
+            <p className="text-gray-400 text-lg mb-6">
               专业团队针对企业定制化陪跑，助力企业实现真实转化
             </p>
+            <Button 
+              className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-semibold px-8 py-3 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+              onClick={() => router.push('/contact')}
+            >
+              联系我们
+            </Button>
           </motion.div>
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">

@@ -1,10 +1,10 @@
 'use client';
 
 import { Navigation } from '@/components/navigation';
-import { Button } from '@/components/ui/button';
+
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { motion } from 'framer-motion';
-import { Mail, MessageCircle, MapPin, Clock, Users, Award, Zap, Shield } from 'lucide-react';
+import { Mail, MessageCircle } from 'lucide-react';
 
 export default function ContactPage() {
   const containerVariants = {
@@ -33,7 +33,7 @@ export default function ContactPage() {
     transition: {
       duration: 3,
       repeat: Infinity,
-      ease: "easeInOut"
+      ease: [0.4, 0, 0.6, 1] as const
     }
   };
 
@@ -228,7 +228,7 @@ export default function ContactPage() {
                 transition={{ duration: 0.6, delay: 0.4 }}
                 whileHover={{ scale: 1.02 }}
               >
-                <Card className="bg-gradient-to-br from-gray-900/80 to-gray-800/80 border-gray-700/50 backdrop-blur-sm hover:border-purple-500/30 transition-all duration-300">
+                <Card className="bg-gradient-to-br from-gray-900/80 to-gray-800/80 border-gray-700/50 backdrop-blur-sm hover:border-slate-500/30 transition-all duration-300">
                   <CardHeader>
                     <CardTitle className="text-2xl text-white mb-4">联系专属顾问</CardTitle>
                     <CardDescription className="text-gray-300 mb-6">
@@ -240,7 +240,7 @@ export default function ContactPage() {
                       href="https://easevision.feishu.cn/share/base/form/shrcnsfdHd9pTbe3loYp2YI67mh"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center w-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white py-4 rounded-lg font-semibold transition-all duration-300 text-lg"
+                      className="inline-flex items-center justify-center w-full bg-gradient-to-r from-slate-600 to-slate-700 hover:from-slate-700 hover:to-slate-800 text-white py-4 rounded-lg font-semibold transition-all duration-300 text-lg"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
@@ -248,7 +248,7 @@ export default function ContactPage() {
                     </motion.a>
                     
                     {/* 服务承诺 */}
-                    <div className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-lg p-4 border border-blue-500/20">
+                    <div className="bg-slate-800/30 rounded-lg p-4 border border-slate-600/30">
                       <h4 className="text-white font-semibold mb-3">我们的服务承诺</h4>
                       <ul className="space-y-2 text-sm text-gray-300">
                         <motion.li 
@@ -257,7 +257,7 @@ export default function ContactPage() {
                           animate={{ opacity: 1, x: 0 }}
                           transition={{ delay: 0.6 }}
                         >
-                          <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
+                          <div className="w-2 h-2 bg-green-400 rounded-full"></div>
                           <span>1小时内快速响应</span>
                         </motion.li>
                         <motion.li 
@@ -266,7 +266,7 @@ export default function ContactPage() {
                           animate={{ opacity: 1, x: 0 }}
                           transition={{ delay: 0.7 }}
                         >
-                          <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
+                          <div className="w-2 h-2 bg-green-400 rounded-full"></div>
                           <span>免费方案咨询</span>
                         </motion.li>
                         <motion.li 
@@ -275,7 +275,7 @@ export default function ContactPage() {
                           animate={{ opacity: 1, x: 0 }}
                           transition={{ delay: 0.8 }}
                         >
-                          <div className="w-2 h-2 bg-pink-400 rounded-full"></div>
+                          <div className="w-2 h-2 bg-green-400 rounded-full"></div>
                           <span>专业技术支持</span>
                         </motion.li>
                         <motion.li 

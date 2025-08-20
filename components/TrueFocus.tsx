@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useRef, useState } from "react";
 import { motion } from "motion/react";
 
@@ -30,22 +32,28 @@ const TrueFocus: React.FC<TrueFocusProps> = ({
     const words = sentence.split(" ");
     const [currentIndex, setCurrentIndex] = useState<number>(0);
     const [lastActiveIndex, setLastActiveIndex] = useState<number | null>(null);
+    const [isMounted, setIsMounted] = useState(false);
     const containerRef = useRef<HTMLDivElement | null>(null);
     const wordRefs = useRef<(HTMLSpanElement | null)[]>([]);
     const [focusRect, setFocusRect] = useState<FocusRect>({ x: 0, y: 0, width: 0, height: 0 });
 
+    // 确保组件只在客户端渲染
     useEffect(() => {
-        if (!manualMode) {
-            const interval = setInterval(() => {
-                setCurrentIndex((prev) => (prev + 1) % words.length);
-            }, (animationDuration + pauseBetweenAnimations) * 1000);
-
-            return () => clearInterval(interval);
-        }
-    }, [manualMode, animationDuration, pauseBetweenAnimations, words.length]);
+        setIsMounted(true);
+    }, []);
 
     useEffect(() => {
-        if (currentIndex === null || currentIndex === -1) return;
+        if (!isMounted || manualMode) return;
+        
+        const interval = setInterval(() => {
+            setCurrentIndex((prev) => (prev + 1) % words.length);
+        }, (animationDuration + pauseBetweenAnimations) * 1000);
+
+        return () => clearInterval(interval);
+    }, [isMounted, manualMode, animationDuration, pauseBetweenAnimations, words]);
+
+    useEffect(() => {
+        if (!isMounted || currentIndex === null || currentIndex === -1) return;
         if (!wordRefs.current[currentIndex] || !containerRef.current) return;
 
         const parentRect = containerRef.current.getBoundingClientRect();
@@ -57,7 +65,7 @@ const TrueFocus: React.FC<TrueFocusProps> = ({
             width: activeRect.width,
             height: activeRect.height,
         });
-    }, [currentIndex, words.length]);
+    }, [isMounted, currentIndex, words.length]);
 
     const handleMouseEnter = (index: number) => {
         if (manualMode) {

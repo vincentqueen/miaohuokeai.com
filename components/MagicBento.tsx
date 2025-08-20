@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useRef, useEffect, useState, useCallback } from "react";
 import { gsap } from "gsap";
 
@@ -284,7 +286,6 @@ const MagicBento: React.FC<BentoProps> = ({
   enableMagnetism = true,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -303,10 +304,6 @@ const MagicBento: React.FC<BentoProps> = ({
       
       const rect = containerRef.current?.getBoundingClientRect();
       if (!rect) return;
-      
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      setMousePosition({ x, y });
 
       if (enableBorderGlow) {
         const cards = containerRef.current?.querySelectorAll('.bento-card');
@@ -338,13 +335,6 @@ const MagicBento: React.FC<BentoProps> = ({
       ref={containerRef}
       className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-6"
       onMouseMove={handleMouseMove}
-      style={{
-        background: enableStars ? `
-          radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-          radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.15) 0%, transparent 50%),
-          radial-gradient(circle at 40% 40%, rgba(120, 119, 198, 0.1) 0%, transparent 50%)
-        ` : undefined,
-      }}
     >
       {cardData.map((card, index) => {
         // 创建拼图式布局：不同卡片占用不同的网格空间
@@ -378,7 +368,7 @@ const MagicBento: React.FC<BentoProps> = ({
           enableMagnetism={enableMagnetism}
         >
           <div className="flex items-start gap-6 mb-6">
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center flex-shrink-0">
+            <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center flex-shrink-0">
               {index === 0 && (
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-users w-6 h-6" aria-hidden="true">
                   <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
@@ -431,27 +421,27 @@ const MagicBento: React.FC<BentoProps> = ({
               {index === 0 && (
                 <>
                   <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-blue-400 mt-2 flex-shrink-0"></div>
+                    <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0"></div>
                     <p className="text-gray-300 text-sm leading-relaxed">秒获客AI数字员工：对话式命令，手机电脑多端使用</p>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-blue-400 mt-2 flex-shrink-0"></div>
+                    <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0"></div>
                     <p className="text-gray-300 text-sm leading-relaxed">企业定制化私有知识库，专属模型能力调优</p>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-blue-400 mt-2 flex-shrink-0"></div>
+                    <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0"></div>
                     <p className="text-gray-300 text-sm leading-relaxed">小红书数字员工：爆款笔记生成、代码生图、海报设计</p>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-blue-400 mt-2 flex-shrink-0"></div>
+                    <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0"></div>
                     <p className="text-gray-300 text-sm leading-relaxed">抖音数字员工：脚本创作、爆款仿拍、直播运营专家</p>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-blue-400 mt-2 flex-shrink-0"></div>
+                    <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0"></div>
                     <p className="text-gray-300 text-sm leading-relaxed">线索投放专家：精准投放策略，提升获客转化率</p>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-blue-400 mt-2 flex-shrink-0"></div>
+                    <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0"></div>
                     <p className="text-gray-300 text-sm leading-relaxed">销售冠军：智能分析通话录音，给出专业销售建议</p>
                   </div>
                 </>
@@ -459,15 +449,15 @@ const MagicBento: React.FC<BentoProps> = ({
               {index === 1 && (
                 <>
                   <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-blue-400 mt-2 flex-shrink-0"></div>
+                    <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0"></div>
                     <p className="text-gray-300 text-sm leading-relaxed">短视频创作：一键生成爆款脚本、分镜、标题文案</p>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-blue-400 mt-2 flex-shrink-0"></div>
+                    <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0"></div>
                     <p className="text-gray-300 text-sm leading-relaxed">小红书笔记：智能生成优质内容，批量发布</p>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-blue-400 mt-2 flex-shrink-0"></div>
+                    <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0"></div>
                     <p className="text-gray-300 text-sm leading-relaxed">数据分析：内容表现分析，优化创作策略</p>
                   </div>
                 </>
@@ -475,15 +465,15 @@ const MagicBento: React.FC<BentoProps> = ({
               {index === 2 && (
                 <>
                   <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-blue-400 mt-2 flex-shrink-0"></div>
+                    <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0"></div>
                     <p className="text-gray-300 text-sm leading-relaxed">真人拍摄一次：AI生成无限视频内容</p>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-blue-400 mt-2 flex-shrink-0"></div>
+                    <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0"></div>
                     <p className="text-gray-300 text-sm leading-relaxed">数字分身帮你打工</p>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-blue-400 mt-2 flex-shrink-0"></div>
+                    <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0"></div>
                     <p className="text-gray-300 text-sm leading-relaxed">本地部署：一次部署，永久使用</p>
                   </div>
                 </>
@@ -491,23 +481,23 @@ const MagicBento: React.FC<BentoProps> = ({
               {index === 3 && (
                 <>
                   <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-blue-400 mt-2 flex-shrink-0"></div>
+                    <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0"></div>
                     <p className="text-gray-300 text-sm leading-relaxed">高情商回复，复杂问题回复</p>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-blue-400 mt-2 flex-shrink-0"></div>
+                    <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0"></div>
                     <p className="text-gray-300 text-sm leading-relaxed">接入抖音后台，全天候无人回复，自动获取客资</p>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-blue-400 mt-2 flex-shrink-0"></div>
+                    <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0"></div>
                     <p className="text-gray-300 text-sm leading-relaxed">自动调用实时更新的知识库，精准人性回答</p>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-blue-400 mt-2 flex-shrink-0"></div>
+                    <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0"></div>
                     <p className="text-gray-300 text-sm leading-relaxed">客资自动写入AI CRM系统，实现快速跟进与可视化管理</p>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-blue-400 mt-2 flex-shrink-0"></div>
+                    <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0"></div>
                     <p className="text-gray-300 text-sm leading-relaxed">针对行业与企业独家定制，回复精准如金牌销售</p>
                   </div>
                 </>
@@ -515,22 +505,22 @@ const MagicBento: React.FC<BentoProps> = ({
               {index === 4 && (
                 <>
                   <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-blue-400 mt-2 flex-shrink-0"></div>
+                    <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0"></div>
                     <p className="text-gray-300 text-sm leading-relaxed">客户信息全记录：完整跟踪客户生命周期</p>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-blue-400 mt-2 flex-shrink-0"></div>
+                    <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0"></div>
                     <p className="text-gray-300 text-sm leading-relaxed">销售数据可视化：实时分析转化率和业绩表现</p>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-blue-400 mt-2 flex-shrink-0"></div>
+                    <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0"></div>
                     <p className="text-gray-300 text-sm leading-relaxed">多端同步：手机/电脑实时查看，随时随地跟进</p>
                   </div>
                 </>
               )}
             </div>
-            <div className="bg-gradient-to-r from-green-500/10 to-blue-500/10 rounded-lg p-4 border border-green-500/20">
-              <h4 className="text-green-300 font-semibold mb-2">效果案例</h4>
+            <div className="bg-gradient-to-r from-blue-500/20 to-purple-600/20 rounded-lg p-4 border border-blue-500/30">
+              <h4 className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 font-semibold mb-2">效果案例</h4>
               {index === 0 && (
                 <p className="text-gray-300 text-sm leading-relaxed">家居品牌「金卡瑞」：老板一人轻松拿捏，每月省去上万元</p>
               )}
