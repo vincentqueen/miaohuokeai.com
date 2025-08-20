@@ -51,7 +51,7 @@ const cardData: BentoCardProps[] = [
   {
     color: "#060010",
     title: "AI内容工厂",
-    description: "批量生成优质内容，抖音小红书一键发布",
+    description: "短视频创作+小红书笔记，一键生成爆款脚本、分镜、标题文案",
     label: "内容工厂",
   },
   {
@@ -498,17 +498,45 @@ const MagicBento: React.FC<BentoProps> = ({
               )}
               {index === 3 && (
                 <>
-                  <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-blue-400 mt-2 flex-shrink-0"></div>
-                    <p className="text-gray-300 text-sm leading-relaxed">批量生成：抖音/小红书内容、海报一键生成</p>
+                  <div className="mb-4">
+                    <h5 className="text-blue-300 font-semibold mb-2">短视频创作内容工厂</h5>
+                    <div className="space-y-2">
+                      <div className="flex items-start gap-3">
+                        <div className="w-2 h-2 rounded-full bg-blue-400 mt-2 flex-shrink-0"></div>
+                        <div>
+                          <p className="text-gray-300 text-sm leading-relaxed"><strong>以前：</strong>每次告诉DeepSeek想怎么写，还需要解释半天，有很多时候DeepSeek还会理解错误，给出不好的结果。</p>
+                          <p className="text-gray-300 text-sm leading-relaxed mt-1"><strong>现在：</strong>一键生成爆款脚本，分镜，发布标题，发布文案等，按照企业知识生成符合投放获客逻辑的脚本。一次性可生成百条。一名员工可管理数十个账号矩阵。</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <div className="w-2 h-2 rounded-full bg-blue-400 mt-2 flex-shrink-0"></div>
+                        <p className="text-gray-300 text-sm leading-relaxed">内容一键生成：分镜，发布标题，发布文案一键生成</p>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <div className="w-2 h-2 rounded-full bg-blue-400 mt-2 flex-shrink-0"></div>
+                        <p className="text-gray-300 text-sm leading-relaxed">数据分析：智能分析内容表现，优化创作策略</p>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <div className="w-2 h-2 rounded-full bg-blue-400 mt-2 flex-shrink-0"></div>
+                        <p className="text-gray-300 text-sm leading-relaxed">账号定位：精准定位目标用户群体</p>
+                      </div>
+                    </div>
                   </div>
-                  <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-blue-400 mt-2 flex-shrink-0"></div>
-                    <p className="text-gray-300 text-sm leading-relaxed">智能仿写：输入链接即可生成同类优质内容</p>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-blue-400 mt-2 flex-shrink-0"></div>
-                    <p className="text-gray-300 text-sm leading-relaxed">多平台发布：支持各大社交媒体平台同步发布</p>
+                  <div>
+                    <h5 className="text-blue-300 font-semibold mb-2">小红书笔记创作</h5>
+                    <div className="space-y-2">
+                      <div className="flex items-start gap-3">
+                        <div className="w-2 h-2 rounded-full bg-blue-400 mt-2 flex-shrink-0"></div>
+                        <div>
+                          <p className="text-gray-300 text-sm leading-relaxed"><strong>以前：</strong>半天想不出一篇小红书文案，员工没精力参与，难以坚持发布！</p>
+                          <p className="text-gray-300 text-sm leading-relaxed mt-1"><strong>现在：</strong>一键生成百条优质笔记，所有员工都能成为优秀的企业达人！每个员工都能为企业发布笔记！</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <div className="w-2 h-2 rounded-full bg-blue-400 mt-2 flex-shrink-0"></div>
+                        <p className="text-gray-300 text-sm leading-relaxed">一键爆款：智能生成高质量小红书内容</p>
+                      </div>
+                    </div>
                   </div>
                 </>
               )}
@@ -545,7 +573,7 @@ const MagicBento: React.FC<BentoProps> = ({
                 <p className="text-gray-300 text-sm leading-relaxed">家居品牌「金卡瑞」：老板一人轻松拿捏，每月省去上万元</p>
               )}
               {index === 3 && (
-                <p className="text-gray-300 text-sm leading-relaxed">服装品牌「太平鸟」：日产100条优质内容，内容制作效率提升500%</p>
+                <p className="text-gray-300 text-sm leading-relaxed">家具某品牌：小红书单人日产100条优质内容，矩阵账号批量发布，实现搜索覆盖</p>
               )}
               {index === 4 && (
                 <p className="text-gray-300 text-sm leading-relaxed">科技公司「小米」：数字人视频播放量提升300%，节省80%拍摄成本</p>
