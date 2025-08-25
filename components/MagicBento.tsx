@@ -28,36 +28,36 @@ export interface BentoProps {
 
 const DEFAULT_PARTICLE_COUNT = 12;
 const DEFAULT_SPOTLIGHT_RADIUS = 300;
-const DEFAULT_GLOW_COLOR = "132, 0, 255";
+const DEFAULT_GLOW_COLOR = "hsl(var(--primary))";
 const MOBILE_BREAKPOINT = 768;
 
 const cardData: BentoCardProps[] = [
   {
-    color: "#060010",
+    color: "hsl(var(--card))",
     title: "AI数字员工",
     description: "自研AI数字员工-为企业专属定制，为企业解决全域全流程获客难题",
     label: "数字员工",
   },
   {
-    color: "#060010",
+    color: "hsl(var(--card))",
     title: "AI内容工厂",
     description: "短视频创作+小红书笔记，一键生成爆款脚本、分镜、标题文案",
     label: "内容工厂",
   },
   {
-    color: "#060010",
+    color: "hsl(var(--card))",
     title: "数字人短视频",
     description: "真人拍摄一次，AI生成无限视频内容",
     label: "数字人视频",
   },
   {
-    color: "#060010",
+    color: "hsl(var(--card))",
     title: "AI智能客服",
     description: "AI销冠上岗，7×24小时接待客户，两三句就让客户留下客资",
     label: "智能客服",
   },
   {
-    color: "#060010",
+    color: "hsl(var(--card))",
     title: "CRM客户管理系统",
     description: "全渠道客户信息整合，销售数据可视化分析",
     label: "CRM系统",
@@ -339,7 +339,7 @@ const MagicBento: React.FC<BentoProps> = ({
       {cardData.map((card, index) => {
         // 创建拼图式布局：不同卡片占用不同的网格空间
         const getCardClassName = (index: number) => {
-           const baseClass = "bento-card bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-xl p-6 hover:border-purple-500/50 transition-all duration-300";
+           const baseClass = "bento-card bg-card/50 backdrop-blur-sm border border-border rounded-xl p-6 hover:border-secondary/50 transition-all duration-300";
            switch (index) {
              case 0: // AI数字员工 - 占据1列，但高度较大
                return `${baseClass} lg:row-span-2`;
@@ -368,7 +368,7 @@ const MagicBento: React.FC<BentoProps> = ({
           enableMagnetism={enableMagnetism}
         >
           <div className="flex items-start gap-6 mb-6">
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center flex-shrink-0">
+            <div className="w-12 h-12 rounded-xl icon-bg-blue flex items-center justify-center flex-shrink-0">
               {index === 0 && (
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-users w-6 h-6" aria-hidden="true">
                   <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
@@ -411,8 +411,8 @@ const MagicBento: React.FC<BentoProps> = ({
               )}
             </div>
             <div>
-              <h3 className="text-2xl font-bold text-white mb-2">{card.title}</h3>
-              <p className="text-gray-400 text-lg">{card.description}</p>
+              <h3 className="text-2xl font-bold text-foreground mb-2">{card.title}</h3>
+              <p className="text-muted-foreground text-lg">{card.description}</p>
             </div>
           </div>
           
@@ -421,124 +421,124 @@ const MagicBento: React.FC<BentoProps> = ({
               {index === 0 && (
                 <>
                   <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0"></div>
-                    <p className="text-gray-300 text-sm leading-relaxed">秒获客AI数字员工：对话式命令，手机电脑多端使用</p>
+                    <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0"></div>
+                    <p className="text-muted-foreground text-sm leading-relaxed">秒获客AI数字员工：对话式命令，手机电脑多端使用</p>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0"></div>
-                    <p className="text-gray-300 text-sm leading-relaxed">企业定制化私有知识库，专属模型能力调优</p>
+                    <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0"></div>
+                    <p className="text-muted-foreground text-sm leading-relaxed">企业定制化私有知识库，专属模型能力调优</p>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0"></div>
-                    <p className="text-gray-300 text-sm leading-relaxed">小红书数字员工：爆款笔记生成、代码生图、海报设计</p>
+                    <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0"></div>
+                    <p className="text-muted-foreground text-sm leading-relaxed">小红书数字员工：爆款笔记生成、代码生图、海报设计</p>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0"></div>
-                    <p className="text-gray-300 text-sm leading-relaxed">抖音数字员工：脚本创作、爆款仿拍、直播运营专家</p>
+                    <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0"></div>
+                    <p className="text-muted-foreground text-sm leading-relaxed">抖音数字员工：脚本创作、爆款仿拍、直播运营专家</p>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0"></div>
-                    <p className="text-gray-300 text-sm leading-relaxed">线索投放专家：精准投放策略，提升获客转化率</p>
+                    <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0"></div>
+                    <p className="text-muted-foreground text-sm leading-relaxed">线索投放专家：精准投放策略，提升获客转化率</p>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0"></div>
-                    <p className="text-gray-300 text-sm leading-relaxed">销售冠军：智能分析通话录音，给出专业销售建议</p>
+                    <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0"></div>
+                    <p className="text-muted-foreground text-sm leading-relaxed">销售冠军：智能分析通话录音，给出专业销售建议</p>
                   </div>
                 </>
               )}
               {index === 1 && (
                 <>
                   <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0"></div>
-                    <p className="text-gray-300 text-sm leading-relaxed">短视频创作：一键生成爆款脚本、分镜、标题文案</p>
+                    <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0"></div>
+                    <p className="text-muted-foreground text-sm leading-relaxed">短视频创作：一键生成爆款脚本、分镜、标题文案</p>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0"></div>
-                    <p className="text-gray-300 text-sm leading-relaxed">小红书笔记：智能生成优质内容，批量发布</p>
+                    <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0"></div>
+                    <p className="text-muted-foreground text-sm leading-relaxed">小红书笔记：智能生成优质内容，批量发布</p>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0"></div>
-                    <p className="text-gray-300 text-sm leading-relaxed">数据分析：内容表现分析，优化创作策略</p>
+                    <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0"></div>
+                    <p className="text-muted-foreground text-sm leading-relaxed">数据分析：内容表现分析，优化创作策略</p>
                   </div>
                 </>
               )}
               {index === 2 && (
                 <>
                   <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0"></div>
-                    <p className="text-gray-300 text-sm leading-relaxed">真人拍摄一次：AI生成无限视频内容</p>
+                    <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0"></div>
+                    <p className="text-muted-foreground text-sm leading-relaxed">真人拍摄一次：AI生成无限视频内容</p>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0"></div>
-                    <p className="text-gray-300 text-sm leading-relaxed">数字分身帮你打工</p>
+                    <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0"></div>
+                    <p className="text-muted-foreground text-sm leading-relaxed">数字分身帮你打工</p>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0"></div>
-                    <p className="text-gray-300 text-sm leading-relaxed">本地部署：一次部署，永久使用</p>
+                    <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0"></div>
+                    <p className="text-muted-foreground text-sm leading-relaxed">本地部署：一次部署，永久使用</p>
                   </div>
                 </>
               )}
               {index === 3 && (
                 <>
                   <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0"></div>
-                    <p className="text-gray-300 text-sm leading-relaxed">高情商回复，复杂问题回复</p>
+                    <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0"></div>
+                    <p className="text-muted-foreground text-sm leading-relaxed">高情商回复，复杂问题回复</p>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0"></div>
-                    <p className="text-gray-300 text-sm leading-relaxed">接入抖音后台，全天候无人回复，自动获取客资</p>
+                    <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0"></div>
+                    <p className="text-muted-foreground text-sm leading-relaxed">接入抖音后台，全天候无人回复，自动获取客资</p>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0"></div>
-                    <p className="text-gray-300 text-sm leading-relaxed">自动调用实时更新的知识库，精准人性回答</p>
+                    <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0"></div>
+                    <p className="text-muted-foreground text-sm leading-relaxed">自动调用实时更新的知识库，精准人性回答</p>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0"></div>
-                    <p className="text-gray-300 text-sm leading-relaxed">客资自动写入AI CRM系统，实现快速跟进与可视化管理</p>
+                    <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0"></div>
+                    <p className="text-muted-foreground text-sm leading-relaxed">客资自动写入AI CRM系统，实现快速跟进与可视化管理</p>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0"></div>
-                    <p className="text-gray-300 text-sm leading-relaxed">针对行业与企业独家定制，回复精准如金牌销售</p>
+                    <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0"></div>
+                    <p className="text-muted-foreground text-sm leading-relaxed">针对行业与企业独家定制，回复精准如金牌销售</p>
                   </div>
                 </>
               )}
               {index === 4 && (
                 <>
                   <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0"></div>
-                    <p className="text-gray-300 text-sm leading-relaxed">客户信息全记录：完整跟踪客户生命周期</p>
+                    <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0"></div>
+                    <p className="text-muted-foreground text-sm leading-relaxed">客户信息全记录：完整跟踪客户生命周期</p>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0"></div>
-                    <p className="text-gray-300 text-sm leading-relaxed">销售数据可视化：实时分析转化率和业绩表现</p>
+                    <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0"></div>
+                    <p className="text-muted-foreground text-sm leading-relaxed">销售数据可视化：实时分析转化率和业绩表现</p>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0"></div>
-                    <p className="text-gray-300 text-sm leading-relaxed">多端同步：手机/电脑实时查看，随时随地跟进</p>
+                    <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0"></div>
+                    <p className="text-muted-foreground text-sm leading-relaxed">多端同步：手机/电脑实时查看，随时随地跟进</p>
                   </div>
                 </>
               )}
             </div>
-            <div className="bg-gradient-to-r from-blue-500/20 to-purple-600/20 rounded-lg p-4 border border-blue-500/30">
-              <h4 className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 font-semibold mb-2">效果案例</h4>
+            <div className="bg-gradient-to-r from-primary/20 to-secondary/20 rounded-lg p-4 border border-primary/30">
+              <h4 className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary font-semibold mb-2">效果案例</h4>
               {index === 0 && (
-                <p className="text-gray-300 text-sm leading-relaxed">家居品牌「金卡瑞」：老板一人轻松拿捏，每月省去上万元</p>
+                <p className="text-muted-foreground text-sm leading-relaxed">家居品牌「金卡瑞」：老板一人轻松拿捏，每月省去上万元</p>
               )}
               {index === 1 && (
-                <p className="text-gray-300 text-sm leading-relaxed">家具某品牌：小红书单人日产100条优质内容，矩阵账号批量发布，实现搜索覆盖</p>
+                <p className="text-muted-foreground text-sm leading-relaxed">家具某品牌：小红书单人日产100条优质内容，矩阵账号批量发布，实现搜索覆盖</p>
               )}
               {index === 2 && (
-                <p className="text-gray-300 text-sm leading-relaxed">某家具品牌老板，使用数字人视频，3分钟完成拍摄，视频投放日获客34组</p>
+                <p className="text-muted-foreground text-sm leading-relaxed">某家具品牌老板，使用数字人视频，3分钟完成拍摄，视频投放日获客34组</p>
               )}
               {index === 3 && (
                 <div className="space-y-2">
-                  <p className="text-gray-300 text-sm leading-relaxed">家居品牌「金卡瑞」：抖音咨询10秒响应，留资率提升320%</p>
-                  <p className="text-gray-300 text-sm leading-relaxed">家居品牌「英伦匠人」：凌晨自动聊，老板终于能睡觉</p>
-                  <p className="text-gray-300 text-sm leading-relaxed">板材品牌「大参林」：同时接待5组咨询，一天聊出30个客资</p>
+                  <p className="text-muted-foreground text-sm leading-relaxed">家居品牌「金卡瑞」：抖音咨询10秒响应，留资率提升320%</p>
+                  <p className="text-muted-foreground text-sm leading-relaxed">家居品牌「英伦匠人」：凌晨自动聊，老板终于能睡觉</p>
+                  <p className="text-muted-foreground text-sm leading-relaxed">板材品牌「大参林」：同时接待5组咨询，一天聊出30个客资</p>
                 </div>
               )}
               {index === 4 && (
-                <p className="text-gray-300 text-sm leading-relaxed">板材品牌「大参林」：10余个销售分配客资井然有序，老板一眼查看数据报表情况</p>
+                <p className="text-muted-foreground text-sm leading-relaxed">板材品牌「大参林」：10余个销售分配客资井然有序，老板一眼查看数据报表情况</p>
               )}
             </div>
           </div>

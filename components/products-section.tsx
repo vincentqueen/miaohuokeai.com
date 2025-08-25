@@ -17,24 +17,24 @@ const mainProducts = [
     id: 1,
     title: '全域AI赋能获客体系',
     description: 'AI+人工双轨服务，全流程获客解决方案',
-    icon: <Zap className="w-8 h-8" />,
-    gradient: 'from-blue-600 to-purple-600',
-    features: ['AI智能客服', 'CRM客户管理', '内容工厂', '数字人视频', '全程陪跑']
+    icon: <Zap className="w-8 h-8 icon-ai" />,
+    gradient: 'from-blue-500 to-blue-600',
+    features: ['AI智能客服', 'CRM客户管理', '内容工厂', '数字人视频', '全程指导']
   },
   {
     id: 2,
     title: 'AI赋能+短期赋能陪跑',
     description: '快速启动，短期见效的轻量化解决方案',
-    icon: <Rocket className="w-8 h-8" />,
-    gradient: 'from-blue-500 to-blue-700',
+    icon: <Rocket className="w-8 h-8 icon-feature" />,
+    gradient: 'from-purple-500 to-purple-600',
     features: ['快速部署', '短期培训', '核心功能', '基础陪跑', '效果保障']
   },
   {
     id: 3,
     title: '全域营销赋能陪跑体系',
     description: '专业团队手把手教学，确保落地效果',
-    icon: <Users className="w-8 h-8" />,
-    gradient: 'from-blue-700 to-purple-700',
+    icon: <Users className="w-8 h-8 icon-enterprise" />,
+    gradient: 'from-orange-500 to-orange-600',
     features: ['线下培训', '实时答疑', '效果复盘', '策略优化', '长期支持']
   }
 ];
@@ -101,7 +101,7 @@ export function ProductsSection() {
   return (
     <>
       <Navigation />
-      <div className="relative min-h-screen bg-black text-white overflow-hidden">
+      <div className="relative min-h-screen bg-background text-foreground overflow-hidden">
       {/* Header */}
       <div className="relative z-10 pt-32 pb-16">
         <div className="container mx-auto px-4">
@@ -115,11 +115,11 @@ export function ProductsSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
-              className="text-5xl md:text-7xl font-black mb-8 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
+              className="text-5xl md:text-7xl font-black mb-8 title-gradient"
             >
               产品体系
             </motion.h1>
-            <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
+            <p className="text-lg md:text-xl text-foreground leading-relaxed">
               基于AI智能客服、内容工厂、数字人视频、专业陪跑服务等核心产品，
               为企业提供从获客到转化的完整解决方案，实现降本提效和业绩增长
             </p>
@@ -136,10 +136,10 @@ export function ProductsSection() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 title-gradient-alt">
               主要产品体系
             </h2>
-            <p className="text-gray-400 text-lg">
+            <p className="text-foreground text-lg">
               三大核心产品体系，满足不同企业的获客需求
             </p>
           </motion.div>
@@ -154,30 +154,30 @@ export function ProductsSection() {
                 whileHover={{ scale: 1.02 }}
                 className="group"
               >
-                <Card className="h-full bg-gray-900/50 border-gray-700/50 backdrop-blur-sm hover:bg-gray-800/60 transition-all duration-300 hover:border-gray-600/60">
+                <Card className="h-full bg-card/50 border-border backdrop-blur-sm hover:bg-card/60 transition-all duration-300 hover:border-border/60">
                   <CardHeader className="pb-4">
                     <div className="flex flex-col items-center text-center mb-4">
                       <div className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${product.gradient} flex items-center justify-center text-2xl shadow-lg mb-4`}>
                         {product.icon}
                       </div>
-                      <CardTitle className="text-xl font-bold text-white group-hover:text-blue-300 transition-colors">
+                      <CardTitle className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
                         {product.title}
                       </CardTitle>
-                      <CardDescription className="text-gray-400 mt-2">
+                      <CardDescription className="text-foreground mt-2">
                         {product.description}
                       </CardDescription>
                       {product.id === 1 && (
-                        <div className="mt-3 px-3 py-1 bg-slate-700 text-gray-200 text-xs font-medium rounded-full inline-block border border-slate-600">
+                        <div className="mt-3 px-3 py-1 bg-secondary text-secondary-foreground text-xs font-medium rounded-full inline-block border border-border">
                           适合有线上获客经验企业
                         </div>
                       )}
                       {product.id === 2 && (
-                        <div className="mt-3 px-3 py-1 bg-slate-700 text-gray-200 text-xs font-medium rounded-full inline-block border border-slate-600">
+                        <div className="mt-3 px-3 py-1 bg-secondary text-secondary-foreground text-xs font-medium rounded-full inline-block border border-border">
                           适合0基础企业短期见效并降本增效
                         </div>
                       )}
                       {product.id === 3 && (
-                        <div className="mt-3 px-3 py-1 bg-slate-700 text-gray-200 text-xs font-medium rounded-full inline-block border border-slate-600">
+                        <div className="mt-3 px-3 py-1 bg-secondary text-secondary-foreground text-xs font-medium rounded-full inline-block border border-border">
                           适合0基础企业长期目标见效
                         </div>
                       )}
@@ -188,13 +188,13 @@ export function ProductsSection() {
                     <div className="space-y-2">
                       {product.features.map((feature, featureIndex) => (
                         <div key={featureIndex} className="flex items-center gap-2">
-                          <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0" />
-                          <span className="text-gray-300 text-sm">{feature}</span>
+                          <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
+                          <span className="text-foreground text-sm">{feature}</span>
                         </div>
                       ))}
                     </div>
                     <Button 
-                      className={`w-full bg-gradient-to-r ${product.gradient} hover:opacity-90 text-white font-semibold py-2 rounded-lg transition-all duration-300`}
+                      className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-2 rounded-lg transition-all duration-300"
                       onClick={() => {
                         let targetId = '';
                         if (product.id === 1) {
@@ -234,10 +234,10 @@ export function ProductsSection() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 title-gradient-alt">
               秒获客AI赋能获客体系
             </h2>
-            <p className="text-gray-400 text-lg">
+            <p className="text-foreground text-lg">
               六个阶段系统化实施，确保AI获客体系落地见效
             </p>
           </motion.div>
@@ -251,22 +251,22 @@ export function ProductsSection() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="relative"
               >
-                <Card className="bg-gray-900/50 border-gray-700/50 backdrop-blur-sm hover:bg-gray-800/60 transition-all duration-300">
+                <Card className="bg-card/50 border-border backdrop-blur-sm hover:bg-card/60 transition-all duration-300">
                   <CardContent className="p-6">
                     <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center text-white font-bold text-xs flex-shrink-0">
+                      <div className="w-12 h-12 rounded-full icon-bg-blue flex items-center justify-center text-primary-foreground font-bold text-xs flex-shrink-0">
                         {step.step}
                       </div>
                       <div>
-                        <h3 className="text-lg font-semibold text-white mb-2">{step.title}</h3>
-                        <p className="text-gray-400 text-sm">{step.description}</p>
+                        <h3 className="text-lg font-semibold text-foreground mb-2">{step.title}</h3>
+                        <p className="text-foreground text-sm">{step.description}</p>
                       </div>
                     </div>
                   </CardContent>
                 </Card>
                 {index < aiProcessSteps.length - 1 && (
                   <div className="hidden lg:block absolute top-1/2 -right-3 transform -translate-y-1/2">
-                    <ArrowRight className="w-6 h-6 text-blue-400" />
+                    <ArrowRight className="w-6 h-6 text-primary" />
                   </div>
                 )}
               </motion.div>
@@ -284,10 +284,10 @@ export function ProductsSection() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
               AI产品详细介绍
             </h2>
-            <p className="text-gray-400 text-lg mb-6">
+            <p className="text-foreground text-lg mb-6">
               五大核心AI产品，助力从内容生产客户承接到销售转化全流程获客
             </p>
             
@@ -298,7 +298,7 @@ export function ProductsSection() {
               className="flex justify-center mb-8"
             >
               <Button 
-                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold px-8 py-3 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                className="btn-blue-purple font-semibold px-8 py-3 rounded-lg transform hover:scale-105 shadow-lg hover:shadow-xl"
                 onClick={() => window.open('https://easevision.feishu.cn/share/base/form/shrcnsfdHd9pTbe3loYp2YI67mh', '_blank')}
               >
                 预约展示
@@ -336,10 +336,10 @@ export function ProductsSection() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
               AI赋能+短期赋能陪跑
             </h2>
-            <p className="text-gray-400 text-lg">
+            <p className="text-foreground text-lg">
               AI工具使用+团队线下教学，带你快速拿到结果
             </p>
           </motion.div>
@@ -349,90 +349,90 @@ export function ProductsSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <Card className="bg-gray-900/50 border-gray-700/50 backdrop-blur-sm">
+            <Card className="bg-card/50 border-border backdrop-blur-sm">
               <CardContent className="p-8">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
                   <div>
                     <div className="flex items-center gap-4 mb-6">
-                      <div className="w-16 h-16 rounded-2xl bg-gradient-to-r from-slate-600 to-slate-700 flex items-center justify-center">
-                        <Rocket className="w-8 h-8 text-white" />
+                      <div className="w-16 h-16 rounded-2xl icon-bg-blue flex items-center justify-center">
+                        <Rocket className="w-8 h-8 icon-feature" />
                       </div>
                       <div>
-                        <h3 className="text-2xl font-bold text-white">快速启动方案</h3>
-                        <p className="text-gray-400">30天快速见效，适合0线上获客基础企业</p>
+                        <h3 className="text-2xl font-bold text-foreground">快速启动方案</h3>
+                        <p className="text-foreground">30天快速见效，适合0线上获客基础企业</p>
                       </div>
                     </div>
                     
                     <div className="space-y-4">
                       <div className="flex items-start gap-3">
-                        <div className="w-6 h-6 rounded-full bg-slate-600 flex items-center justify-center text-white text-sm font-bold flex-shrink-0">1</div>
+                        <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center text-foreground text-sm font-bold flex-shrink-0">1</div>
                         <div>
-                          <h4 className="text-white font-semibold">快速部署（3天）</h4>
-                          <p className="text-gray-400 text-sm">AI客服、CRM系统快速上线</p>
+                          <h4 className="text-foreground font-semibold">快速部署（3天）</h4>
+                          <p className="text-foreground text-sm">AI客服、CRM系统快速上线</p>
                         </div>
                       </div>
                       <div className="flex items-start gap-3">
-                        <div className="w-6 h-6 rounded-full bg-slate-600 flex items-center justify-center text-white text-sm font-bold flex-shrink-0">2</div>
+                        <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center text-foreground text-sm font-bold flex-shrink-0">2</div>
                         <div>
-                          <h4 className="text-white font-semibold">核心培训（7天）</h4>
-                          <p className="text-gray-400 text-sm">重点功能培训，快速上手</p>
+                          <h4 className="text-foreground font-semibold">核心培训（7天）</h4>
+                          <p className="text-foreground text-sm">重点功能培训，快速上手</p>
                         </div>
                       </div>
                       <div className="flex items-start gap-3">
-                        <div className="w-6 h-6 rounded-full bg-slate-600 flex items-center justify-center text-white text-sm font-bold flex-shrink-0">3</div>
+                        <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center text-foreground text-sm font-bold flex-shrink-0">3</div>
                         <div>
-                          <h4 className="text-white font-semibold">效果跟踪与调优（50天）</h4>
-                          <p className="text-gray-400 text-sm">数据监控，策略调优</p>
+                          <h4 className="text-foreground font-semibold">效果跟踪与调优（50天）</h4>
+                          <p className="text-foreground text-sm">数据监控，策略调优</p>
                         </div>
                       </div>
                       <div className="flex items-start gap-3">
-                        <div className="w-6 h-6 rounded-full bg-slate-600 flex items-center justify-center text-white text-sm font-bold flex-shrink-0">4</div>
+                        <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center text-foreground text-sm font-bold flex-shrink-0">4</div>
                         <div>
-                          <h4 className="text-white font-semibold">全年产品支持</h4>
-                          <p className="text-gray-400 text-sm">持续技术支持与产品更新</p>
+                          <h4 className="text-foreground font-semibold">全年产品支持</h4>
+                          <p className="text-foreground text-sm">持续技术支持与产品更新</p>
                         </div>
                       </div>
                     </div>
                   </div>
                   
-                  <div className="bg-gray-900/50 rounded-xl p-6 border border-gray-700/50">
-                    <h4 className="text-xl font-bold text-white mb-4">服务包含</h4>
+                  <div className="bg-card/50 rounded-xl p-6 border border-border">
+                    <h4 className="text-xl font-bold text-foreground mb-4">服务包含</h4>
                     <div className="space-y-3">
                       <div className="flex items-center gap-2">
-                        <CheckCircle className="w-4 h-4 text-green-400" />
-                        <span className="text-gray-300 text-sm">AI智能客服</span>
+                        <CheckCircle className="w-4 h-4 text-primary" />
+                        <span className="text-foreground text-sm">AI智能客服</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <CheckCircle className="w-4 h-4 text-green-400" />
-                        <span className="text-gray-300 text-sm">CRM客户管理搭建</span>
+                        <CheckCircle className="w-4 h-4 text-primary" />
+                        <span className="text-foreground text-sm">CRM客户管理搭建</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <CheckCircle className="w-4 h-4 text-green-400" />
-                        <span className="text-gray-300 text-sm">AI数字员工</span>
+                        <CheckCircle className="w-4 h-4 text-primary" />
+                        <span className="text-foreground text-sm">AI数字员工</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <CheckCircle className="w-4 h-4 text-green-400" />
-                        <span className="text-gray-300 text-sm">内容工厂+数字人本地部署</span>
+                        <CheckCircle className="w-4 h-4 text-primary" />
+                        <span className="text-foreground text-sm">内容工厂+数字人本地部署</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <CheckCircle className="w-4 h-4 text-green-400" />
-                        <span className="text-gray-300 text-sm">60天专属陪跑</span>
+                        <CheckCircle className="w-4 h-4 text-primary" />
+                        <span className="text-foreground text-sm">60天专属陪跑</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <CheckCircle className="w-4 h-4 text-green-400" />
-                        <span className="text-gray-300 text-sm">投放与直播教学</span>
+                        <CheckCircle className="w-4 h-4 text-primary" />
+                        <span className="text-foreground text-sm">投放与直播教学</span>
                       </div>
                     </div>
                     
-                    <div className="mt-6 pt-4 border-t border-gray-700">
+                    <div className="mt-6 pt-4 border-t border-border">
                       <div className="text-center">
                         <Button 
-                          className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-semibold px-6 py-2 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl mb-1"
+                          className="btn-blue-purple font-semibold px-6 py-2 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl mb-1"
                           onClick={() => router.push('/contact')}
                         >
                           联系销售了解更多详情
                         </Button>
-                        <div className="text-gray-400 text-sm">定制化方案报价</div>
+                        <div className="text-foreground text-sm">定制化方案报价</div>
                       </div>
                     </div>
                   </div>
@@ -452,14 +452,14 @@ export function ProductsSection() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
               全域赋能获客陪跑服务
             </h2>
-            <p className="text-gray-400 text-lg mb-6">
+            <p className="text-foreground text-lg mb-6">
               专业团队针对企业定制化陪跑，助力企业实现真实转化
             </p>
             <Button 
-              className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-semibold px-8 py-3 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+              className="btn-blue-purple font-semibold px-8 py-3 rounded-lg transform hover:scale-105 shadow-lg hover:shadow-xl"
               onClick={() => router.push('/contact')}
             >
               联系我们
@@ -472,34 +472,34 @@ export function ProductsSection() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <Card className="h-full bg-gray-900/50 border-gray-700/50 backdrop-blur-sm">
+              <Card className="h-full bg-card/50 border-border backdrop-blur-sm">
                 <CardHeader>
-                  <CardTitle className="text-2xl font-bold text-white flex items-center gap-3">
-                    <Users className="w-8 h-8 text-blue-400" />
+                  <CardTitle className="text-2xl font-bold text-foreground flex items-center gap-3">
+                    <Users className="w-8 h-8 text-primary" />
                     线下培训服务
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="space-y-3">
                     <div className="flex items-start gap-3">
-                      <CheckCircle className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+                      <CheckCircle className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
                       <div>
-                        <h4 className="text-white font-semibold">系统化培训</h4>
-                        <p className="text-gray-400 text-sm">AI工具使用、获客策略、转化技巧全覆盖</p>
+                        <h4 className="text-foreground font-semibold">系统化培训</h4>
+                        <p className="text-foreground text-sm">AI工具使用、获客策略、转化技巧全覆盖</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-3">
-                      <CheckCircle className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+                      <CheckCircle className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
                       <div>
-                        <h4 className="text-white font-semibold">实操演练</h4>
-                        <p className="text-gray-400 text-sm">现场指导，手把手教学，确保学会为止</p>
+                        <h4 className="text-foreground font-semibold">实操演练</h4>
+                        <p className="text-foreground text-sm">现场指导，手把手教学，确保学会为止</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-3">
-                      <CheckCircle className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+                      <CheckCircle className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
                       <div>
-                        <h4 className="text-white font-semibold">定制方案</h4>
-                        <p className="text-gray-400 text-sm">根据企业特点制定专属获客策略</p>
+                        <h4 className="text-foreground font-semibold">定制方案</h4>
+                        <p className="text-foreground text-sm">根据企业特点制定专属获客策略</p>
                       </div>
                     </div>
                   </div>
@@ -512,34 +512,34 @@ export function ProductsSection() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <Card className="h-full bg-gray-900/50 border-gray-700/50 backdrop-blur-sm">
+              <Card className="h-full bg-card/50 border-border backdrop-blur-sm">
                 <CardHeader>
-                  <CardTitle className="text-2xl font-bold text-white flex items-center gap-3">
-                    <Zap className="w-8 h-8 text-purple-400" />
+                  <CardTitle className="text-2xl font-bold text-foreground flex items-center gap-3">
+                    <Zap className="w-8 h-8 text-primary" />
                     线上陪跑服务
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="space-y-3">
                     <div className="flex items-start gap-3">
-                      <CheckCircle className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+                      <CheckCircle className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
                       <div>
-                        <h4 className="text-white font-semibold">实时答疑</h4>
-                        <p className="text-gray-400 text-sm">专属群组7×24小时在线解答问题</p>
+                        <h4 className="text-foreground font-semibold">实时答疑</h4>
+                        <p className="text-foreground text-sm">专属群组7×24小时在线解答问题</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-3">
-                      <CheckCircle className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+                      <CheckCircle className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
                       <div>
-                        <h4 className="text-white font-semibold">效果复盘</h4>
-                        <p className="text-gray-400 text-sm">定期数据分析，持续优化获客策略</p>
+                        <h4 className="text-foreground font-semibold">效果复盘</h4>
+                        <p className="text-foreground text-sm">定期数据分析，持续优化获客策略</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-3">
-                      <CheckCircle className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+                      <CheckCircle className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
                       <div>
-                        <h4 className="text-white font-semibold">长期支持</h4>
-                        <p className="text-gray-400 text-sm">持续跟进服务，确保长期稳定效果</p>
+                        <h4 className="text-foreground font-semibold">长期支持</h4>
+                        <p className="text-foreground text-sm">持续跟进服务，确保长期稳定效果</p>
                       </div>
                     </div>
                   </div>
@@ -559,10 +559,10 @@ export function ProductsSection() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
               服务承诺
             </h2>
-            <p className="text-gray-400 text-lg">
+            <p className="text-foreground text-lg">
               我们承诺为每一位客户提供最优质的服务体验
             </p>
           </motion.div>
@@ -578,17 +578,17 @@ export function ProductsSection() {
               }}
               className="group"
             >
-              <Card className="h-full bg-gradient-to-br from-gray-900/80 to-gray-800/80 border-gray-700/50 backdrop-blur-sm text-center hover:border-blue-500/50 transition-all duration-300 group-hover:shadow-xl group-hover:shadow-blue-500/20">
+              <Card className="h-full bg-gradient-to-br from-card/80 to-card/60 border-border backdrop-blur-sm text-center hover:border-primary/50 transition-all duration-300 group-hover:shadow-xl group-hover:shadow-primary/20">
                 <CardContent className="p-8">
                   <motion.div 
-                    className="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-br from-blue-500/30 to-blue-600/30 flex items-center justify-center group-hover:from-blue-500/50 group-hover:to-blue-600/50 transition-all duration-300"
+                    className="w-20 h-20 mx-auto mb-6 rounded-full icon-bg-blue flex items-center justify-center transition-all duration-300"
                     whileHover={{ rotate: 360 }}
                     transition={{ duration: 0.6 }}
                   >
                     <div className="text-3xl">🎯</div>
                   </motion.div>
-                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-blue-300 transition-colors duration-300">双轨服务</h3>
-                  <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300">线下培训+线上实时答疑</p>
+                  <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-blue-600 transition-colors duration-300">双轨服务</h3>
+                  <p className="text-foreground group-hover:text-foreground transition-colors duration-300">线下培训+线上实时答疑</p>
                 </CardContent>
               </Card>
             </motion.div>
@@ -603,17 +603,17 @@ export function ProductsSection() {
               }}
               className="group"
             >
-              <Card className="h-full bg-gradient-to-br from-gray-900/80 to-gray-800/80 border-gray-700/50 backdrop-blur-sm text-center hover:border-green-500/50 transition-all duration-300 group-hover:shadow-xl group-hover:shadow-green-500/20">
+              <Card className="h-full bg-gradient-to-br from-card/80 to-card/60 border-border backdrop-blur-sm text-center hover:border-secondary/50 transition-all duration-300 group-hover:shadow-xl group-hover:shadow-secondary/20">
                 <CardContent className="p-8">
                   <motion.div 
-                    className="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-br from-blue-500/30 to-blue-600/30 flex items-center justify-center group-hover:from-blue-500/50 group-hover:to-blue-600/50 transition-all duration-300"
+                    className="w-20 h-20 mx-auto mb-6 rounded-full icon-bg-blue flex items-center justify-center transition-all duration-300"
                     whileHover={{ rotate: 360 }}
                     transition={{ duration: 0.6 }}
                   >
                     <div className="text-3xl">💰</div>
                   </motion.div>
-                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-green-300 transition-colors duration-300">效果保障</h3>
-                  <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300">首月无效全额退款</p>
+                  <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-purple-600 transition-colors duration-300">效果保障</h3>
+                  <p className="text-foreground group-hover:text-foreground transition-colors duration-300">首月无效全额退款</p>
                 </CardContent>
               </Card>
             </motion.div>
@@ -628,17 +628,17 @@ export function ProductsSection() {
               }}
               className="group"
             >
-              <Card className="h-full bg-gradient-to-br from-gray-900/80 to-gray-800/80 border-gray-700/50 backdrop-blur-sm text-center hover:border-purple-500/50 transition-all duration-300 group-hover:shadow-xl group-hover:shadow-purple-500/20">
+              <Card className="h-full bg-gradient-to-br from-card/80 to-secondary/20 border-border backdrop-blur-sm text-center hover:border-secondary/50 transition-all duration-300 group-hover:shadow-xl group-hover:shadow-secondary/20">
                 <CardContent className="p-8">
                   <motion.div 
-                    className="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-br from-blue-500/30 to-blue-600/30 flex items-center justify-center group-hover:from-blue-500/50 group-hover:to-blue-600/50 transition-all duration-300"
+                    className="w-20 h-20 mx-auto mb-6 rounded-full icon-bg-blue flex items-center justify-center transition-all duration-300"
                     whileHover={{ rotate: 360 }}
                     transition={{ duration: 0.6 }}
                   >
                     <div className="text-3xl">🔄</div>
                   </motion.div>
-                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-purple-300 transition-colors duration-300">持续赋能</h3>
-                  <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300">持续复盘+策略迭代</p>
+                  <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-green-600 transition-colors duration-300">持续赋能</h3>
+                  <p className="text-foreground group-hover:text-foreground transition-colors duration-300">持续复盘+策略迭代</p>
                 </CardContent>
               </Card>
             </motion.div>
@@ -656,7 +656,7 @@ export function ProductsSection() {
             >
               <Button 
                 size="lg" 
-                className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white px-12 py-4 rounded-full text-lg font-bold shadow-2xl hover:shadow-blue-500/25 transition-all duration-300"
+                className="btn-blue-purple px-12 py-4 rounded-full text-lg font-bold shadow-2xl hover:shadow-primary/25"
                 onClick={() => setShowQRCode(true)}
               >
                 领取定制化解决方案
@@ -672,7 +672,7 @@ export function ProductsSection() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+          className="fixed inset-0 bg-background/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
           onClick={() => setShowQRCode(false)}
         >
           <motion.div
@@ -680,25 +680,25 @@ export function ProductsSection() {
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.8, opacity: 0 }}
             transition={{ type: "spring", damping: 20, stiffness: 300 }}
-            className="bg-white rounded-2xl p-8 max-w-md w-full mx-auto relative"
+            className="bg-card rounded-2xl p-8 max-w-md w-full mx-auto relative"
             onClick={(e) => e.stopPropagation()}
           >
             <button
               onClick={() => setShowQRCode(false)}
-              className="absolute top-4 right-4 w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors duration-200"
+              className="absolute top-4 right-4 w-8 h-8 rounded-full bg-secondary/20 hover:bg-secondary/30 flex items-center justify-center transition-colors duration-200"
             >
-              <X className="w-5 h-5 text-gray-600" />
+              <X className="w-5 h-5 text-foreground" />
             </button>
             
             <div className="text-center">
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">
+              <h3 className="text-2xl font-bold text-foreground mb-2">
                 扫码获取定制化方案
               </h3>
-              <p className="text-gray-600 mb-6">
+              <p className="text-foreground mb-6">
                 添加企业微信，获取专属AI获客解决方案
               </p>
               
-              <div className="bg-gray-50 rounded-xl p-4 mb-6">
+              <div className="bg-secondary/10 rounded-xl p-4 mb-6">
                 <img
                   src="/微信二维码.jpg"
                   alt="微信二维码"
@@ -706,7 +706,7 @@ export function ProductsSection() {
                 />
               </div>
               
-              <div className="text-sm text-gray-500">
+              <div className="text-sm text-foreground">
                 <p>扫描二维码或保存图片</p>
                 <p>专业顾问1对1服务</p>
               </div>
@@ -716,9 +716,9 @@ export function ProductsSection() {
       )}
       
       {/* 版权信息 */}
-      <div className="bg-gray-900/80 border-t border-gray-700/50 py-6">
+      <div className="bg-card/80 border-t border-border py-6">
         <div className="container mx-auto px-4 text-center">
-          <p className="text-gray-400 text-sm">
+          <p className="text-foreground text-sm">
             © 2025 成都一郅映画文化传媒有限公司版权所有
           </p>
         </div>

@@ -40,7 +40,7 @@ export default function ContactPage() {
   return (
     <>
       <Navigation />
-      <div className="relative min-h-screen bg-black text-white overflow-hidden">
+      <div className="relative min-h-screen bg-background text-foreground overflow-hidden">
         {/* 背景动画元素 */}
         <div className="absolute inset-0 overflow-hidden">
           <motion.div
@@ -53,7 +53,7 @@ export default function ContactPage() {
               repeat: Infinity,
               ease: "linear"
             }}
-            className="absolute top-1/4 left-1/4 w-64 h-64 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-full blur-3xl"
+            className="absolute top-1/4 left-1/4 w-64 h-64 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-full blur-3xl"
           />
           <motion.div
             animate={{
@@ -65,7 +65,7 @@ export default function ContactPage() {
               repeat: Infinity,
               ease: "linear"
             }}
-            className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-r from-pink-500/10 to-blue-500/10 rounded-full blur-3xl"
+            className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-r from-accent/10 to-primary/10 rounded-full blur-3xl"
           />
         </div>
 
@@ -79,7 +79,7 @@ export default function ContactPage() {
               className="text-center mb-16"
             >
               <motion.h1 
-                className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 bg-gradient-to-r from-blue-500 via-purple-600 to-blue-700 bg-clip-text text-transparent"
+                className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 title-gradient"
                 animate={{
                   backgroundPosition: ['0% 50%', '100% 50%', '0% 50%']
                 }}
@@ -92,7 +92,7 @@ export default function ContactPage() {
                 联系我们
               </motion.h1>
               <motion.p 
-                className="text-xl text-gray-300 max-w-3xl mx-auto mb-8"
+                className="text-xl text-foreground max-w-3xl mx-auto mb-8"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.3, duration: 0.6 }}
@@ -108,20 +108,20 @@ export default function ContactPage() {
                 className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto mb-12"
               >
                 <motion.div variants={itemVariants} className="text-center">
-                  <motion.div animate={floatingAnimation} className="text-3xl font-bold text-blue-400 mb-2">40+</motion.div>
-                  <p className="text-gray-400 text-sm">服务企业</p>
+                  <motion.div animate={floatingAnimation} className="text-3xl font-bold text-blue-600 mb-2">40+</motion.div>
+                  <p className="text-foreground text-sm">服务企业</p>
                 </motion.div>
                 <motion.div variants={itemVariants} className="text-center">
-                  <motion.div animate={floatingAnimation} className="text-3xl font-bold text-purple-400 mb-2">98%</motion.div>
-                  <p className="text-gray-400 text-sm">客户满意度</p>
+                  <motion.div animate={floatingAnimation} className="text-3xl font-bold text-purple-600 mb-2">98%</motion.div>
+                  <p className="text-foreground text-sm">客户满意度</p>
                 </motion.div>
                 <motion.div variants={itemVariants} className="text-center">
-                  <motion.div animate={floatingAnimation} className="text-3xl font-bold text-pink-400 mb-2">24/7</motion.div>
-                  <p className="text-gray-400 text-sm">技术支持</p>
+                  <motion.div animate={floatingAnimation} className="text-3xl font-bold text-orange-600 mb-2">24/7</motion.div>
+                  <p className="text-foreground text-sm">技术支持</p>
                 </motion.div>
                 <motion.div variants={itemVariants} className="text-center">
-                  <motion.div animate={floatingAnimation} className="text-3xl font-bold text-green-400 mb-2">6年+</motion.div>
-                  <p className="text-gray-400 text-sm">行业经验</p>
+                  <motion.div animate={floatingAnimation} className="text-3xl font-bold text-green-500 mb-2">6年+</motion.div>
+                  <p className="text-foreground text-sm">行业经验</p>
                 </motion.div>
               </motion.div>
             </motion.div>
@@ -136,26 +136,26 @@ export default function ContactPage() {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 whileHover={{ scale: 1.02 }}
               >
-                <Card className="bg-gradient-to-br from-gray-900/80 to-gray-800/80 border-gray-700/50 backdrop-blur-sm hover:border-blue-500/30 transition-all duration-300">
+                <Card className="bg-gradient-to-br from-card/80 to-muted/80 border-border backdrop-blur-sm hover:border-primary/30 transition-all duration-300">
                   <CardHeader>
-                    <CardTitle className="text-2xl text-white mb-4">联系方式</CardTitle>
-                    <CardDescription className="text-gray-300">
+                    <CardTitle className="text-2xl text-foreground mb-4">联系方式</CardTitle>
+                    <CardDescription className="text-foreground">
                       多种方式联系我们，我们将尽快回复您
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="space-y-6">
                       <motion.div 
-                        className="flex items-center space-x-4 p-4 rounded-lg hover:bg-gray-800/50 transition-all duration-300"
+                        className="flex items-center space-x-4 p-4 rounded-lg hover:bg-muted/50 transition-all duration-300"
                         whileHover={{ x: 5 }}
                       >
                         <motion.div 
                           className="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center"
                           whileHover={{ scale: 1.1, rotate: 5 }}
                         >
-                          <MessageCircle className="w-6 h-6 text-green-400" />
+                          <MessageCircle className="w-6 h-6 text-green-500 icon-contact" />
                         </motion.div>
                         <div>
-                          <h3 className="text-white font-semibold">添加微信</h3>
+                          <h3 className="text-foreground font-semibold">添加微信</h3>
                           <button 
                             onClick={() => {
                               const modal = document.createElement('div');
@@ -177,7 +177,7 @@ export default function ContactPage() {
                                 if (e.target === modal) modal.remove();
                               };
                             }}
-                            className="text-blue-400 hover:text-blue-300 transition-colors cursor-pointer hover:underline"
+                            className="text-primary hover:text-primary/80 transition-colors cursor-pointer hover:underline"
                           >
                             点击查看微信二维码
                           </button>
@@ -185,36 +185,36 @@ export default function ContactPage() {
                       </motion.div>
 
                       <motion.div 
-                        className="flex items-center space-x-4 p-4 rounded-lg hover:bg-gray-800/50 transition-all duration-300"
+                        className="flex items-center space-x-4 p-4 rounded-lg hover:bg-muted/50 transition-all duration-300"
                         whileHover={{ x: 5 }}
                       >
                         <motion.div 
                           className="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center"
                           whileHover={{ scale: 1.1, rotate: -5 }}
                         >
-                          <MessageCircle className="w-6 h-6 text-blue-400" />
+                          <MessageCircle className="w-6 h-6 text-primary icon-contact" />
                         </motion.div>
                         <div>
-                          <h3 className="text-white font-semibold">AI智能客服</h3>
-                          <a href="https://work.weixin.qq.com/kfid/kfc73f9dc680411ab11" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 transition-colors hover:underline">
+                          <h3 className="text-foreground font-semibold">AI智能客服</h3>
+                          <a href="https://work.weixin.qq.com/kfid/kfc73f9dc680411ab11" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 transition-colors hover:underline">
                             点击进入智能客服
                           </a>
                         </div>
                       </motion.div>
 
                       <motion.div 
-                        className="flex items-center space-x-4 p-4 rounded-lg hover:bg-gray-800/50 transition-all duration-300"
+                        className="flex items-center space-x-4 p-4 rounded-lg hover:bg-muted/50 transition-all duration-300"
                         whileHover={{ x: 5 }}
                       >
                         <motion.div 
                           className="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center"
                           whileHover={{ scale: 1.1, rotate: 5 }}
                         >
-                          <Mail className="w-6 h-6 text-purple-400" />
+                          <Mail className="w-6 h-6 text-secondary icon-email" />
                         </motion.div>
                         <div>
-                          <h3 className="text-white font-semibold">企业邮箱</h3>
-                          <p className="text-gray-400 hover:text-purple-400 transition-colors cursor-pointer">jiangyunxi@yizhivision.cn</p>
+                          <h3 className="text-foreground font-semibold">企业邮箱</h3>
+                          <p className="text-foreground hover:text-secondary transition-colors cursor-pointer">jiangyunxi@yizhivision.cn</p>
                         </div>
                       </motion.div>
                     </CardContent>
@@ -228,10 +228,10 @@ export default function ContactPage() {
                 transition={{ duration: 0.6, delay: 0.4 }}
                 whileHover={{ scale: 1.02 }}
               >
-                <Card className="bg-gradient-to-br from-gray-900/80 to-gray-800/80 border-gray-700/50 backdrop-blur-sm hover:border-slate-500/30 transition-all duration-300">
+                <Card className="bg-gradient-to-br from-card/80 to-muted/80 border-border backdrop-blur-sm hover:border-primary/30 transition-all duration-300">
                   <CardHeader>
-                    <CardTitle className="text-2xl text-white mb-4">联系专属顾问</CardTitle>
-                    <CardDescription className="text-gray-300 mb-6">
+                    <CardTitle className="text-2xl text-foreground mb-4">联系专属顾问</CardTitle>
+                    <CardDescription className="text-foreground mb-6">
                       点击按钮，获得专业的咨询服务
                     </CardDescription>
                   </CardHeader>
@@ -240,7 +240,7 @@ export default function ContactPage() {
                       href="https://easevision.feishu.cn/share/base/form/shrcnsfdHd9pTbe3loYp2YI67mh"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center w-full bg-gradient-to-r from-slate-600 to-slate-700 hover:from-slate-700 hover:to-slate-800 text-white py-4 rounded-lg font-semibold transition-all duration-300 text-lg"
+                      className="inline-flex items-center justify-center w-full bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary text-primary-foreground py-4 rounded-lg font-semibold transition-all duration-300 text-lg"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
@@ -248,16 +248,16 @@ export default function ContactPage() {
                     </motion.a>
                     
                     {/* 服务承诺 */}
-                    <div className="bg-slate-800/30 rounded-lg p-4 border border-slate-600/30">
-                      <h4 className="text-white font-semibold mb-3">我们的服务承诺</h4>
-                      <ul className="space-y-2 text-sm text-gray-300">
+                    <div className="bg-muted/30 rounded-lg p-4 border border-border">
+                      <h4 className="text-foreground font-semibold mb-3">我们的服务承诺</h4>
+                      <ul className="space-y-2 text-sm text-foreground">
                         <motion.li 
                           className="flex items-center space-x-2"
                           initial={{ opacity: 0, x: -10 }}
                           animate={{ opacity: 1, x: 0 }}
                           transition={{ delay: 0.6 }}
                         >
-                          <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                          <div className="w-2 h-2 bg-green-500 rounded-full"></div>
                           <span>1小时内快速响应</span>
                         </motion.li>
                         <motion.li 
@@ -266,7 +266,7 @@ export default function ContactPage() {
                           animate={{ opacity: 1, x: 0 }}
                           transition={{ delay: 0.7 }}
                         >
-                          <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                          <div className="w-2 h-2 bg-green-500 rounded-full"></div>
                           <span>免费方案咨询</span>
                         </motion.li>
                         <motion.li 
@@ -275,7 +275,7 @@ export default function ContactPage() {
                           animate={{ opacity: 1, x: 0 }}
                           transition={{ delay: 0.8 }}
                         >
-                          <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                          <div className="w-2 h-2 bg-green-500 rounded-full"></div>
                           <span>专业技术支持</span>
                         </motion.li>
                         <motion.li 
@@ -284,7 +284,7 @@ export default function ContactPage() {
                           animate={{ opacity: 1, x: 0 }}
                           transition={{ delay: 0.9 }}
                         >
-                          <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                          <div className="w-2 h-2 bg-green-500 rounded-full"></div>
                           <span>定制化解决方案</span>
                         </motion.li>
                       </ul>
@@ -305,31 +305,31 @@ export default function ContactPage() {
         >
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 title-gradient-alt">
                 常见问题
               </h2>
-              <p className="text-gray-300 max-w-2xl mx-auto">
+              <p className="text-foreground max-w-2xl mx-auto">
                 以下是客户经常咨询的问题，希望能帮助您更好地了解我们的服务
               </p>
             </div>
             
             <div className="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
               <motion.div 
-                className="bg-gradient-to-br from-gray-900/80 to-gray-800/80 border border-gray-700/50 rounded-xl p-6 backdrop-blur-sm"
-                whileHover={{ scale: 1.02, borderColor: 'rgba(59, 130, 246, 0.3)' }}
+                className="bg-gradient-to-br from-card/80 to-muted/80 border border-border rounded-xl p-6 backdrop-blur-sm"
+                whileHover={{ scale: 1.02, borderColor: 'hsl(var(--primary) / 0.3)' }}
               >
-                <h3 className="text-white font-semibold mb-3">如何开始合作？</h3>
-                <p className="text-gray-300 text-sm leading-relaxed">
+                <h3 className="text-foreground font-semibold mb-3">如何开始合作？</h3>
+                <p className="text-foreground text-sm leading-relaxed">
                   您可以通过微信、智能客服或专属顾问联系我们，我们会安排专业顾问为您提供免费咨询，了解您的需求后制定专属解决方案。
                 </p>
               </motion.div>
               
               <motion.div 
-                className="bg-gradient-to-br from-gray-900/80 to-gray-800/80 border border-gray-700/50 rounded-xl p-6 backdrop-blur-sm"
-                whileHover={{ scale: 1.02, borderColor: 'rgba(147, 51, 234, 0.3)' }}
+                className="bg-gradient-to-br from-card/80 to-muted/80 border border-border rounded-xl p-6 backdrop-blur-sm"
+                whileHover={{ scale: 1.02, borderColor: 'hsl(var(--secondary) / 0.3)' }}
               >
-                <h3 className="text-white font-semibold mb-3">项目周期多长？</h3>
-                <p className="text-gray-300 text-sm leading-relaxed">
+                <h3 className="text-foreground font-semibold mb-3">项目周期多长？</h3>
+                <p className="text-foreground text-sm leading-relaxed">
                   项目服务持续一年，第一个月内保证见效。
                 </p>
               </motion.div>
@@ -344,18 +344,18 @@ export default function ContactPage() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 1 }}
-          className="relative z-10 bg-gray-900/80 border-t border-gray-700/50 py-8 mt-16"
+          className="relative z-10 bg-card/80 border-t border-border py-8 mt-16"
         >
           <div className="container mx-auto px-4">
             <div className="text-center">
               <motion.p 
-                className="text-gray-400 text-sm mb-4"
+                className="text-foreground text-sm mb-4"
                 animate={{ opacity: [0.7, 1, 0.7] }}
                 transition={{ duration: 2, repeat: Infinity }}
               >
                 © 2025 成都一郅映画文化传媒有限公司版权所有
               </motion.p>
-              <div className="flex justify-center space-x-6 text-xs text-gray-500">
+              <div className="flex justify-center space-x-6 text-xs text-foreground">
                 <span>蜀ICP备xxxxxxxx号</span>
                 <span>|</span>
                 <span>川公网安备xxxxxxxx号</span>

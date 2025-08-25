@@ -6,12 +6,12 @@ import LightRays from '@/components/LightRays';
 
 export default function AIGCPage() {
   return (
-    <div className="min-h-screen relative overflow-hidden bg-black">
+    <div className="min-h-screen relative overflow-hidden bg-background">
       {/* 背景光线效果 */}
       <div className="absolute inset-0 w-full h-full">
         <LightRays 
           raysOrigin="top-center" 
-          raysColor="#e6f3ff" 
+          raysColor="hsl(var(--primary))" 
           raysSpeed={1.5} 
           lightSpread={0.8} 
           rayLength={1.2} 
@@ -35,8 +35,8 @@ export default function AIGCPage() {
             sentence="AIGC即将上线" 
             manualMode={false} 
             blurAmount={5} 
-            borderColor="#3b82f6" 
-            glowColor="rgba(59, 130, 246, 0.6)"
+            borderColor="hsl(var(--primary))" 
+            glowColor="hsl(var(--primary) / 0.6)"
             animationDuration={2} 
             pauseBetweenAnimations={1} 
           />

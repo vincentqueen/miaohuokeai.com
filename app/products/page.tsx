@@ -1,8 +1,10 @@
 import { ProductsSection } from "@/components/products-section";
+import { Navigation } from "@/components/navigation";
 
 export default function ProductsPage() {
   return (
-    <div>
+    <div className="min-h-screen bg-background">
+      <Navigation />
       <ProductsSection />
     </div>
   );

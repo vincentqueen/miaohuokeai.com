@@ -55,7 +55,7 @@ export default function PricingPage() {
   return (
     <>
       <Navigation />
-      <div className="relative min-h-screen bg-black text-white overflow-hidden">
+      <div className="relative min-h-screen bg-background text-foreground overflow-hidden">
         {/* Header */}
         <div className="relative z-10 pt-32 pb-16">
           <div className="container mx-auto px-4">
@@ -65,10 +65,10 @@ export default function PricingPage() {
               transition={{ duration: 0.6 }}
               className="text-center mb-16"
             >
-              <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-300 via-blue-500 to-cyan-400 bg-clip-text text-transparent">
+              <h1 className="text-5xl md:text-7xl font-bold mb-6 title-gradient">
                 产品定价
               </h1>
-              <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              <p className="text-xl text-foreground max-w-3xl mx-auto">
                 选择最适合您的方案，开启AI赋能之旅
               </p>
             </motion.div>
@@ -87,23 +87,23 @@ export default function PricingPage() {
                   >
                     {plan.popular && (
                       <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
-                        <span className="bg-gradient-to-r from-slate-600 to-slate-700 text-white px-4 py-1 rounded-full text-sm font-semibold">
+                        <span className="bg-gradient-to-r from-primary/80 to-primary text-primary-foreground px-4 py-1 rounded-full text-sm font-semibold">
                           最受欢迎
                         </span>
                       </div>
                     )}
-                    <Card className={`w-full flex flex-col bg-gradient-to-br from-gray-900/80 to-gray-800/80 border-gray-700/50 backdrop-blur-sm transition-all duration-300 hover:border-slate-500/50 hover:shadow-xl hover:shadow-slate-500/20 ${
-                      plan.popular ? 'border-slate-500/50 shadow-lg shadow-slate-500/20' : ''
+                    <Card className={`w-full flex flex-col bg-gradient-to-br from-card/80 to-muted/80 border-border backdrop-blur-sm transition-all duration-300 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/20 ${
+                      plan.popular ? 'border-primary/50 shadow-lg shadow-primary/20' : ''
                     }`}>
                       <CardHeader className="text-center pb-6 flex-shrink-0">
-                        <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-blue-600/30 to-blue-700/30 flex items-center justify-center">
-                          <IconComponent className="w-8 h-8 text-slate-400" />
+                        <div className="w-16 h-16 mx-auto mb-4 rounded-full icon-bg-blue flex items-center justify-center">
+                          <IconComponent className="w-8 h-8 icon-feature" />
                         </div>
-                        <CardTitle className="text-2xl lg:text-3xl text-white mb-3 leading-tight">{plan.name}</CardTitle>
+                        <CardTitle className="text-2xl lg:text-3xl text-foreground mb-3 leading-tight">{plan.name}</CardTitle>
                         <div className="mb-4 min-h-[3rem] flex items-center justify-center">
-                          <span className="text-xs lg:text-sm font-bold text-white text-center leading-relaxed">{plan.price}</span>
+                          <span className="text-xs lg:text-sm font-bold text-foreground text-center leading-relaxed">{plan.price}</span>
                         </div>
-                        <CardDescription className="text-gray-300 text-base">
+                        <CardDescription className="text-foreground text-base">
                           {plan.description}
                         </CardDescription>
                       </CardHeader>
@@ -111,19 +111,15 @@ export default function PricingPage() {
                         <ul className="space-y-3 mb-8 flex-1">
                           {plan.features.map((feature, featureIndex) => (
                             <li key={featureIndex} className="flex items-start space-x-3">
-                              <Check className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
-                              <span className="text-gray-300 text-sm leading-relaxed">{feature === '全程陪跑' ? 'AI数字员工' : feature}</span>
+                              <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                              <span className="text-foreground text-sm leading-relaxed">{feature === '全程陪跑' ? 'AI数字员工' : feature}</span>
                             </li>
                           ))}
                         </ul>
                         <div className="mt-auto">
                           <Link href="/contact">
                             <Button
-                              className={`w-full py-3 rounded-lg font-semibold transition-all duration-300 ${
-                                plan.popular
-                                  ? 'bg-gradient-to-r from-slate-600 to-slate-700 hover:from-slate-700 hover:to-slate-800 text-white'
-                                  : 'bg-gray-700 hover:bg-gray-600 text-white'
-                              }`}
+                              className="w-full py-3 rounded-lg font-semibold bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white transition-all duration-300"
                             >
                               {plan.buttonText}
                             </Button>
@@ -143,49 +139,49 @@ export default function PricingPage() {
               transition={{ duration: 0.6, delay: 0.8 }}
               className="mt-20 max-w-4xl mx-auto"
             >
-              <h2 className="text-3xl font-bold text-center mb-12 text-white">
+              <h2 className="text-3xl font-bold text-center mb-12 title-gradient-alt">
                 常见问题
               </h2>
               <div className="grid md:grid-cols-2 gap-8">
-                <Card className="bg-gradient-to-br from-gray-900/80 to-gray-800/80 border-gray-700/50 backdrop-blur-sm">
+                <Card className="bg-gradient-to-br from-card/80 to-muted/80 border-border backdrop-blur-sm">
                   <CardHeader>
-                    <CardTitle className="text-lg text-white">我能掌握AI使用吗？</CardTitle>
+                    <CardTitle className="text-lg text-foreground">我能掌握AI使用吗？</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-gray-300">
+                    <p className="text-foreground">
                       当然可以！我们提供全流程指导和手把手教学，通过流程化培训体系，确保企业任何人都能轻松掌握AI工具的使用方法。
                     </p>
                   </CardContent>
                 </Card>
 
-                <Card className="bg-gradient-to-br from-gray-900/80 to-gray-800/80 border-gray-700/50 backdrop-blur-sm">
+                <Card className="bg-gradient-to-br from-card/80 to-muted/80 border-border backdrop-blur-sm">
                   <CardHeader>
-                    <CardTitle className="text-lg text-white">陪跑是你们给我们做视频吗？</CardTitle>
+                    <CardTitle className="text-lg text-foreground">陪跑是你们给我们做视频吗？</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-gray-300">
+                    <p className="text-foreground">
                       不是的，我们提供的是全流程教学服务。我们将底层逻辑与落地效果双重交付，确保企业内部团队能够独立产出优质内容和效果。
                     </p>
                   </CardContent>
                 </Card>
 
-                <Card className="bg-gradient-to-br from-gray-900/80 to-gray-800/80 border-gray-700/50 backdrop-blur-sm">
+                <Card className="bg-gradient-to-br from-card/80 to-muted/80 border-border backdrop-blur-sm">
                   <CardHeader>
-                    <CardTitle className="text-lg text-white">对于效果有保障吗？</CardTitle>
+                    <CardTitle className="text-lg text-foreground">对于效果有保障吗？</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-gray-300">
+                    <p className="text-foreground">
                       当然有保障！我们郑重承诺：第一个月内如果没有达到预期效果，我们将提供全额退款保障。
                     </p>
                   </CardContent>
                 </Card>
 
-                <Card className="bg-gradient-to-br from-gray-900/80 to-gray-800/80 border-gray-700/50 backdrop-blur-sm">
+                <Card className="bg-gradient-to-br from-card/80 to-muted/80 border-border backdrop-blur-sm">
                   <CardHeader>
-                    <CardTitle className="text-lg text-white">你们的产品和其它的有什么区别？</CardTitle>
+                    <CardTitle className="text-lg text-foreground">你们的产品和其它的有什么区别？</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-gray-300">
+                    <p className="text-foreground">
                       我们的产品针对行业深度定制，结合顶尖运营老师的实战经验，专注于最终交付结果。我们深知：获客只是开始，转化才是结果！
                     </p>
                   </CardContent>
@@ -196,9 +192,9 @@ export default function PricingPage() {
         </div>
 
         {/* 版权信息 */}
-        <div className="bg-gray-900/80 border-t border-gray-700/50 py-6 mt-20">
+        <div className="bg-card/80 border-t border-border py-6 mt-20">
           <div className="container mx-auto px-4 text-center">
-            <p className="text-gray-400 text-sm">
+            <p className="text-muted-foreground text-sm">
               © 2025 成都一郅映画文化传媒有限公司版权所有
             </p>
           </div>

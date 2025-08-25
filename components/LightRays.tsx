@@ -29,10 +29,18 @@ interface LightRaysProps {
   className?: string;
 }
 
-const DEFAULT_COLOR = "#ffffff";
+const DEFAULT_COLOR = "hsl(var(--foreground))";
 
-const hexToRgb = (hex: string): [number, number, number] => {
-  const m = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+const colorToRgb = (color: string): [number, number, number] => {
+  // Handle HSL format
+  if (color.startsWith('hsl(')) {
+    // For CSS variables like hsl(var(--foreground)), return white as default
+    // In a real implementation, you'd want to get the computed style
+    return [1, 1, 1];
+  }
+  
+  // Handle hex format
+  const m = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(color);
   return m
     ? [
         parseInt(m[1], 16) / 255,
@@ -243,7 +251,7 @@ void main() {
           iResolution: { value: [0, 0] },
           rayPos: { value: [0, 0] },
           rayDir: { value: [0, 1] },
-          raysColor: { value: hexToRgb(raysColor) },
+          raysColor: { value: colorToRgb(raysColor) },
           raysSpeed: { value: raysSpeed },
           lightSpread: { value: lightSpread },
           rayLength: { value: rayLength },

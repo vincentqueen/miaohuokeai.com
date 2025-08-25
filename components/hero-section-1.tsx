@@ -73,7 +73,7 @@ export function HeroSection() {
                             <div
                                 className="absolute inset-x-0 top-56 -z-20 hidden lg:top-32 dark:block w-full h-full"
                                 style={{
-                                    backgroundImage: 'radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.1) 0%, transparent 50%), linear-gradient(135deg, rgba(15, 23, 42, 0.8) 0%, rgba(30, 41, 59, 0.6) 50%, rgba(51, 65, 85, 0.4) 100%)'
+                                    backgroundImage: 'radial-gradient(circle at 50% 50%, hsl(var(--primary) / 0.1) 0%, transparent 50%), linear-gradient(135deg, hsl(var(--background) / 0.8) 0%, hsl(var(--muted) / 0.6) 50%, hsl(var(--border) / 0.4) 100%)'
                                 }}
                             />
                         </AnimatedGroup>
@@ -85,7 +85,7 @@ export function HeroSection() {
                                         href="https://work.weixin.qq.com/kfid/kfc73f9dc680411ab11"
                                         className="hover:bg-background dark:hover:border-t-border bg-muted group mx-auto flex w-fit items-center gap-4 rounded-full border p-1 pl-4 shadow-md shadow-black/5 transition-all duration-300 dark:border-t-white/5 dark:shadow-zinc-950">
                                         <span className="text-foreground text-sm">联系我们了解更多</span>
-                                        <span className="dark:border-background block h-4 w-0.5 border-l bg-white dark:bg-zinc-700"></span>
+                                        <span className="dark:border-background block h-4 w-0.5 border-l bg-foreground/20 dark:bg-muted"></span>
 
                                         <div className="bg-background group-hover:bg-muted size-6 overflow-hidden rounded-full duration-500">
                                             <div className="flex w-12 -translate-x-1/2 duration-500 ease-in-out group-hover:translate-x-0">
@@ -178,7 +178,7 @@ export function HeroSection() {
                                         {/* 获客效率 */}
                                         <div className="group relative bg-gradient-to-br from-background/90 to-background/70 backdrop-blur-xl rounded-xl p-6 transform transition-all duration-300 hover:scale-105 hover:-translate-y-1" style={{boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.05)'}}>
                                             <div className="w-12 h-12 bg-blue-500/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-blue-500/20 transition-colors duration-300">
-                                                <svg className="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                                                 </svg>
                                             </div>
@@ -189,7 +189,7 @@ export function HeroSection() {
                                         {/* 成本降低 */}
                                         <div className="group relative bg-gradient-to-br from-background/90 to-background/70 backdrop-blur-xl rounded-xl p-6 transform transition-all duration-300 hover:scale-105 hover:-translate-y-1" style={{boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.05)'}}>
                                             <div className="w-12 h-12 bg-green-500/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-green-500/20 transition-colors duration-300">
-                                                <svg className="w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
                                                 </svg>
                                             </div>
@@ -200,7 +200,7 @@ export function HeroSection() {
                                         {/* 数据可控 */}
                                         <div className="group relative bg-gradient-to-br from-background/90 to-background/70 backdrop-blur-xl rounded-xl p-6 transform transition-all duration-300 hover:scale-105 hover:-translate-y-1" style={{boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.05)'}}>
                                             <div className="w-12 h-12 bg-purple-500/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-purple-500/20 transition-colors duration-300">
-                                                <svg className="w-6 h-6 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                                                 </svg>
                                             </div>
@@ -211,7 +211,7 @@ export function HeroSection() {
                                         {/* 快速上手 */}
                                         <div className="group relative bg-gradient-to-br from-background/90 to-background/70 backdrop-blur-xl rounded-xl p-6 transform transition-all duration-300 hover:scale-105 hover:-translate-y-1" style={{boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.05)'}}>
                                             <div className="w-12 h-12 bg-orange-500/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-orange-500/20 transition-colors duration-300">
-                                                <svg className="w-6 h-6 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <svg className="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                                                 </svg>
                                             </div>
@@ -225,9 +225,9 @@ export function HeroSection() {
                                 <div className="relative z-10 mx-auto max-w-screen-2xl px-6 lg:px-12">
                                     {/* 背景装饰元素 */}
                                     <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                                        <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-blue-500/10 to-cyan-500/10 rounded-full blur-xl animate-pulse"></div>
-                                        <div className="absolute bottom-20 right-10 w-40 h-40 bg-gradient-to-br from-blue-600/10 to-indigo-500/10 rounded-full blur-xl animate-pulse delay-1000"></div>
-                                        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-60 h-60 bg-gradient-to-br from-blue-400/5 to-cyan-400/5 rounded-full blur-2xl animate-pulse delay-500"></div>
+                                        <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-primary/10 to-primary/10 rounded-full blur-xl animate-pulse"></div>
+                                        <div className="absolute bottom-20 right-10 w-40 h-40 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-full blur-xl animate-pulse delay-1000"></div>
+                                        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-60 h-60 bg-gradient-to-br from-primary/5 to-primary/5 rounded-full blur-2xl animate-pulse delay-500"></div>
                                     </div>
 
                                     {/* 卡片容器 - 统一布局 */}
@@ -246,8 +246,8 @@ export function HeroSection() {
                                                 </div>
                                                 
                                                 <div className="relative z-10">
-                                                    <div className="w-16 h-16 bg-muted/20 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                                                        <svg className="w-8 h-8 text-muted-foreground group-hover:text-foreground transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <div className="w-16 h-16 bg-blue-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                                                        <svg className="w-8 h-8 text-blue-600 group-hover:text-blue-700 transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                                                         </svg>
                                                     </div>
@@ -287,8 +287,8 @@ export function HeroSection() {
                                                 </div>
                                                 
                                                 <div className="relative z-10">
-                                                    <div className="w-16 h-16 bg-muted/20 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                                                        <svg className="w-8 h-8 text-muted-foreground group-hover:text-foreground transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <div className="w-16 h-16 bg-green-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                                                        <svg className="w-8 h-8 text-green-600 group-hover:text-green-700 transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                                                         </svg>
                                                     </div>
@@ -328,8 +328,8 @@ export function HeroSection() {
                                                 </div>
                                                 
                                                 <div className="relative z-10">
-                                                    <div className="w-16 h-16 bg-muted/20 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                                                        <svg className="w-8 h-8 text-muted-foreground group-hover:text-foreground transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <div className="w-16 h-16 bg-purple-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                                                        <svg className="w-8 h-8 text-purple-600 group-hover:text-purple-700 transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                                                         </svg>
                                                     </div>
@@ -363,9 +363,9 @@ export function HeroSection() {
                     </div>
                 </section>
                 {/* 版权信息 */}
-                <footer className="w-full bg-gray-900/90 border-t border-gray-700/50 py-4 mt-auto">
+                <footer className="w-full bg-muted/50 border-t border-border py-4 mt-auto">
                     <div className="container mx-auto px-4 text-center">
-                        <p className="text-gray-400 text-sm">
+                        <p className="text-muted-foreground text-sm">
                             © 2025 成都一郅映画文化传媒有限公司版权所有
                         </p>
                     </div>

@@ -24,8 +24,8 @@ const TrueFocus: React.FC<TrueFocusProps> = ({
     sentence = "True Focus",
     manualMode = false,
     blurAmount = 5,
-    borderColor = "green",
-    glowColor = "rgba(0, 255, 0, 0.6)",
+    borderColor = "hsl(var(--primary))",
+    glowColor = "hsl(var(--primary) / 0.6)",
     animationDuration = 0.5,
     pauseBetweenAnimations = 1,
 }) => {
@@ -91,7 +91,7 @@ const TrueFocus: React.FC<TrueFocusProps> = ({
                     <span
                         key={index}
                         ref={(el) => { wordRefs.current[index] = el; }}
-                        className="relative text-[3rem] font-black cursor-pointer text-white"
+                        className="relative text-[3rem] font-black cursor-pointer text-foreground"
                         style={{
                             filter: manualMode
                                 ? isActive
