@@ -333,6 +333,7 @@ const MagicBento: React.FC<BentoProps> = ({
   return (
     <div
       ref={containerRef}
+      data-enable-stars={enableStars ? 'true' : 'false'}
       className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-6"
       onMouseMove={handleMouseMove}
     >

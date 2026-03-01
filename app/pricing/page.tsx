@@ -4,51 +4,59 @@ import { Navigation } from '@/components/navigation';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { motion } from 'framer-motion';
-import { Check, Star, Zap, Crown } from 'lucide-react';
-import Link from 'next/link';
-
+import { Check, Crown, Sparkles, Target } from 'lucide-react';
 export default function PricingPage() {
+  const CTA_FORM_URL = 'https://easevision.feishu.cn/share/base/form/shrcnsfdHd9pTbe3loYp2YI67mh';
+
   const plans = [
     {
-      name: '全域AI赋能获客体系',
-        price: 'AI+人工双轨服务，全流程获客解决方案',
-      description: '适合有线上获客经验企业',
-      icon: Star,
+      name: '秒获客AI-短期全能获客',
+      badge: '30天内无效全额退款',
+      summary: 'AI+运营陪跑，一套体系短期全能获客',
+      description: '适合希望短期内跑通获客闭环并降本提效的企业',
+      icon: Sparkles,
       features: [
-        '智能客服搭建部署',
-        '数字人部署与使用教学',
-        '内容工厂与CRM搭建',
-        '专属定制数字员工',
-        'AI全流程打法',
-        '线上线下全方位支持'
+        '阶段化交付：准备阶段+4周落地+全年支持',
+        '秒Claw超级AI智能员工：自动化运营与销售指导',
+        '7×24智能客服：全渠道接入+销冠话术',
+        '数字人本地部署：一次拍摄，批量生成内容',
+        'AI内容工厂+AI CRM：内容生产到转化闭环',
+        '双轨服务：线下培训+线上实时答疑',
+        '营销获客体系搭建与教学'
       ],
-      buttonText: '联系我们',
-      popular: false
+      popular: true
     },
-    {      name: 'AI赋能+短期赋能陪跑',
-        price: '专业团队手把手教学，确保落地效果',      description: '适合0基础企业短期见效并降本增效',      icon: Zap,      features: [
-        '企业获客全流程短跑',
-        '智能客服搭建部署',
-        '数字人部署与使用教学',
-        '内容工厂与CRM搭建',
-        '专属定制数字员工',
-        'AI全流程打法',
-        '线上线下全方位支持'
-      ],      buttonText: '联系我们',      popular: true    },
     {
-      name: '全域营销赋能陪跑体系',
-        price: '快速启动，短期见效的轻量化解决方案',
-      description: '适合0基础企业长期目标见效',
+      name: '秒获客AI-营销全能获客',
+      badge: '30天内无效全额退款',
+      summary: '五阶段陪跑，打通多渠道与销售转化',
+      description: '适合希望长期系统化增长、打通销售与营销的企业',
       icon: Crown,
       features: [
-        '线下培训',
-        '实时答疑',
-        '效果复盘',
-        '策略优化',
-        '长期支持'
+        '五阶段全景规划：基建→见效→多渠道→销售与营销→全年支持',
+        '秒Claw+智能客服+数字人+内容工厂+AI CRM',
+        '直播与投放策略制定、复盘迭代',
+        '线下转化赋能：销售SOP/设计成交/利润管理',
+        '会员知识库持续更新',
+        '投放返点对接与成本优化'
       ],
-      buttonText: '联系我们',
       popular: false
+    },
+    {
+      name: '秒获客AI-投放获客',
+      badge: '30天内无效全额退款',
+      summary: '以投放为核心的获客路径，快速起量与优化',
+      description: '适合以投放为核心、希望快速起量并稳定获客的企业',
+      icon: Target,
+      features: [
+        '投放运营集中课程教学',
+        '投放团队介入执行与优化',
+        '智能客服承接与客资同步',
+        'AI内容工厂与数字员工协同',
+        '直播话术工厂与复盘教学',
+        '投放返点对接'
+      ],
+      popular: false,
     }
   ];
 
@@ -66,10 +74,10 @@ export default function PricingPage() {
               className="text-center mb-16"
             >
               <h1 className="text-5xl md:text-7xl font-bold mb-6 title-gradient">
-                产品定价
+                方案说明与报价入口
               </h1>
               <p className="text-xl text-foreground max-w-3xl mx-auto">
-                选择最适合您的方案，开启AI赋能之旅
+                先看清交付内容与适用企业，再领取定制化方案与报价
               </p>
             </motion.div>
 
@@ -100,30 +108,29 @@ export default function PricingPage() {
                           <IconComponent className="w-8 h-8 icon-feature" />
                         </div>
                         <CardTitle className="text-2xl lg:text-3xl text-foreground mb-3 leading-tight">{plan.name}</CardTitle>
-                        <div className="mb-4 min-h-[3rem] flex items-center justify-center">
-                          <span className="text-xs lg:text-sm font-bold text-foreground text-center leading-relaxed">{plan.price}</span>
+                        <div className="mb-3 flex justify-center">
+                          <span className="px-3 py-1 rounded-full bg-secondary/30 border border-border text-xs text-foreground">{plan.badge}</span>
                         </div>
-                        <CardDescription className="text-foreground text-base">
-                          {plan.description}
-                        </CardDescription>
+                        <div className="mb-4 min-h-[3rem] flex items-center justify-center">
+                          <span className="text-xs lg:text-sm font-bold text-foreground text-center leading-relaxed">{plan.summary}</span>
+                        </div>
+                        <CardDescription className="text-foreground text-base">{plan.description}</CardDescription>
                       </CardHeader>
                       <CardContent className="flex-1 flex flex-col">
                         <ul className="space-y-3 mb-8 flex-1">
                           {plan.features.map((feature, featureIndex) => (
                             <li key={featureIndex} className="flex items-start space-x-3">
                               <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                              <span className="text-foreground text-sm leading-relaxed">{feature === '全程陪跑' ? 'AI数字员工' : feature}</span>
+                              <span className="text-foreground text-sm leading-relaxed">{feature}</span>
                             </li>
                           ))}
                         </ul>
                         <div className="mt-auto">
-                          <Link href="/contact">
-                            <Button
-                              className="w-full py-3 rounded-lg font-semibold bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white transition-all duration-300"
-                            >
-                              {plan.buttonText}
+                          <a href={CTA_FORM_URL} target="_blank" rel="noopener noreferrer">
+                            <Button className="w-full py-3 rounded-lg font-semibold bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white transition-all duration-300">
+                              领取定制化方案
                             </Button>
-                          </Link>
+                          </a>
                         </div>
                       </CardContent>
                     </Card>
@@ -156,22 +163,22 @@ export default function PricingPage() {
 
                 <Card className="bg-gradient-to-br from-card/80 to-muted/80 border-border backdrop-blur-sm">
                   <CardHeader>
-                    <CardTitle className="text-lg text-foreground">陪跑是你们给我们做视频吗？</CardTitle>
+                    <CardTitle className="text-lg text-foreground">AI会不会回复不灵活？</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <p className="text-foreground">
-                      不是的，我们提供的是全流程教学服务。我们将底层逻辑与落地效果双重交付，确保企业内部团队能够独立产出优质内容和效果。
+                      系统基于企业知识库定制，使用最新大模型基底深度调教，出资率只会比人工更高。
                     </p>
                   </CardContent>
                 </Card>
 
                 <Card className="bg-gradient-to-br from-card/80 to-muted/80 border-border backdrop-blur-sm">
                   <CardHeader>
-                    <CardTitle className="text-lg text-foreground">对于效果有保障吗？</CardTitle>
+                    <CardTitle className="text-lg text-foreground">多久见效？</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <p className="text-foreground">
-                      当然有保障！我们郑重承诺：第一个月内如果没有达到预期效果，我们将提供全额退款保障。
+                      30天内无效全额退款（首月无效退款），并配合分阶段复盘与策略迭代，确保可持续提升效果。
                     </p>
                   </CardContent>
                 </Card>
@@ -182,7 +189,7 @@ export default function PricingPage() {
                   </CardHeader>
                   <CardContent>
                     <p className="text-foreground">
-                      我们的产品针对行业深度定制，结合顶尖运营老师的实战经验，专注于最终交付结果。我们深知：获客只是开始，转化才是结果！
+                      我们交付的不只是工具，而是可复用的获客体系：从内容生产、客户承接、CRM管理、到销售转化与自动化运营，形成闭环并持续迭代。
                     </p>
                   </CardContent>
                 </Card>

@@ -2,8 +2,7 @@
 
 import React from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, ShieldCheck, Sparkles } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { AnimatedGroup } from '@/components/ui/animated-group'
 import { BeamsBackground } from '@/components/ui/beams-background'
@@ -42,7 +41,7 @@ export function HeroSection() {
         <>
             <BeamsBackground intensity="medium" className="min-h-screen">
                 <main className="overflow-hidden relative z-10 min-h-screen flex flex-col">
-                <section className="flex-1">
+                <section className="flex-1 pb-16 md:pb-24">
                     <div className="relative pt-24 md:pt-36">
                         <AnimatedGroup
                             variants={{
@@ -101,12 +100,19 @@ export function HeroSection() {
                         
                                     <h1
                                         className="mt-8 max-w-4xl mx-auto text-balance text-6xl md:text-7xl lg:mt-16 xl:text-[5.25rem] font-bold">
-                                        秒获客AI<br />全域赋能获客体系
+                                        秒获客AI<br />全域赋能企业获客体系
                                     </h1>
                                     <p
                                         className="mx-auto mt-8 max-w-2xl text-balance text-lg">
-                                        AI全域赋能企业获客，降本提效增转化<br />7×24小时智能客服+数字员工+内容工厂，一套系统解决获客全链路难题
+                                        线下体系陪跑，真实落地企业可持续获客流<br />
+                                        AI超级数字员工，全流程接管运营，客服，内容生产，助理企业降本增效快速落地。
                                     </p>
+                                    <div className="mt-6 flex justify-center">
+                                        <div className="inline-flex items-center gap-2 rounded-full border bg-muted px-4 py-2 text-sm text-foreground shadow-md shadow-black/5">
+                                            <ShieldCheck className="size-4 text-primary" />
+                                            30天内无效全额退款
+                                        </div>
+                                    </div>
                                 </AnimatedGroup>
 
                                 <AnimatedGroup
@@ -143,8 +149,8 @@ export function HeroSection() {
                                         size="lg"
                                         variant="ghost"
                                         className="h-10.5 rounded-xl px-5">
-                                        <Link href="/pricing">
-                                            <span className="text-nowrap">查看价格</span>
+                                        <Link href="https://easevision.feishu.cn/share/base/form/shrcnsfdHd9pTbe3loYp2YI67mh" target="_blank" rel="noopener noreferrer">
+                                            <span className="text-nowrap">领取定制化方案</span>
                                         </Link>
                                     </Button>
                                 </AnimatedGroup>
@@ -223,134 +229,54 @@ export function HeroSection() {
                                 
                                 {/* 三大核心产品卡片区域 - 创意动画版本 */}
                                 <div className="relative z-10 mx-auto max-w-screen-2xl px-6 lg:px-12">
-                                    {/* 背景装饰元素 */}
-                                    <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                                        <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-primary/10 to-primary/10 rounded-full blur-xl animate-pulse"></div>
-                                        <div className="absolute bottom-20 right-10 w-40 h-40 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-full blur-xl animate-pulse delay-1000"></div>
-                                        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-60 h-60 bg-gradient-to-br from-primary/5 to-primary/5 rounded-full blur-2xl animate-pulse delay-500"></div>
-                                    </div>
-
-                                    {/* 卡片容器 - 统一布局 */}
-                                    <div className="relative grid grid-cols-1 lg:grid-cols-3 gap-8 mt-16">
-                                        {/* 全域AI赋能获客体系 */}
-                                        <div className="lg:col-span-1 group">
-                                            <div className="relative bg-gradient-to-br from-background/90 to-background/70 backdrop-blur-xl rounded-2xl p-6 transform transition-all duration-500 hover:scale-105 hover:-translate-y-1" style={{boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.1)'}}>
-                                                {/* 渐变背景动画 */}
-                                                <div className="absolute inset-0 bg-gradient-to-br from-muted/5 via-muted/3 to-muted/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                                                
-                                                {/* 浮动粒子效果 - 限制在卡片内部 */}
-                                                <div className="absolute inset-0 rounded-2xl overflow-hidden">
-                                                    <div className="absolute top-4 right-4 w-2 h-2 bg-muted-foreground/30 rounded-full animate-ping"></div>
-                                                    <div className="absolute top-8 right-8 w-1 h-1 bg-muted-foreground/20 rounded-full animate-ping delay-300"></div>
-                                                    <div className="absolute top-6 right-12 w-1.5 h-1.5 bg-muted-foreground/25 rounded-full animate-ping delay-700"></div>
+                                    <div className="relative mt-16 rounded-3xl border bg-gradient-to-br from-background/90 to-background/70 backdrop-blur-xl p-8 lg:p-10" style={{boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.08)'}}>
+                                        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                                            <div className="lg:col-span-7">
+                                                <div className="inline-flex items-center gap-2 rounded-full border bg-secondary/30 px-4 py-2 text-sm text-foreground">
+                                                    <Sparkles className="size-4 text-primary" />
+                                                    主推：短期全能获客
                                                 </div>
-                                                
-                                                <div className="relative z-10">
-                                                    <div className="w-16 h-16 bg-blue-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                                                        <svg className="w-8 h-8 text-blue-600 group-hover:text-blue-700 transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                                                        </svg>
+                                                <h2 className="mt-6 text-3xl md:text-4xl font-bold text-foreground">
+                                                    一套体系，30天搭建企业自主获客能力
+                                                </h2>
+                                                <p className="mt-4 text-muted-foreground text-base md:text-lg leading-relaxed">
+                                                    AI工具体系 + 线下体系陪跑双轨交付：30天跑通获客闭环，全年线上答疑与复盘迭代，企业能力可复制、可持续。
+                                                </p>
+                                                <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3">
+                                                    <div className="rounded-xl border bg-muted/30 px-4 py-3 text-sm text-foreground">
+                                                        30天内无效全额退款
                                                     </div>
-                                                    <h3 className="text-xl font-bold mb-4 text-foreground">全域AI赋能获客体系</h3>
-                                                    <p className="text-sm text-muted-foreground mb-4 leading-relaxed">以AI工具为核心，分阶段搭建自主获客能力，覆盖全周期运营，让获客变得智能化、自动化</p>
-                                                    <div className="space-y-3 text-xs">
-                                                        <div className="flex items-center text-muted-foreground">
-                                                            <div className="w-2 h-2 bg-muted-foreground rounded-full mr-2"></div>
-                                                            智能客服7×24小时自动回复
-                                                        </div>
-                                                        <div className="flex items-center text-muted-foreground">
-                                                            <div className="w-2 h-2 bg-muted-foreground rounded-full mr-2"></div>
-                                                            数字人本地部署，无需拍摄
-                                                        </div>
-                                                        <div className="flex items-center text-muted-foreground">
-                                                            <div className="w-2 h-2 bg-muted-foreground rounded-full mr-2"></div>
-                                                            AI CRM可视化客户管理
-                                                        </div>
+                                                    <div className="rounded-xl border bg-muted/30 px-4 py-3 text-sm text-foreground">
+                                                        线下培训 + 线上实时答疑
                                                     </div>
-                                                    <div className="mt-6 px-3 py-1.5 bg-muted/30 rounded-lg">
-                                                        <div className="text-xs text-foreground font-semibold">企业版 • 全年支持</div>
+                                                    <div className="rounded-xl border bg-muted/30 px-4 py-3 text-sm text-foreground">
+                                                        全流程阶段化交付
+                                                    </div>
+                                                </div>
+                                                <div className="mt-8 flex flex-col sm:flex-row gap-3">
+                                                    <div className="bg-foreground/10 rounded-[14px] border p-0.5 w-fit">
+                                                        <Button asChild size="lg" className="rounded-xl px-6 text-base">
+                                                            <Link href="/products">查看产品介绍</Link>
+                                                        </Button>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-
-                                        {/* 全域营销赋能陪跑体系 */}
-                                        <div className="lg:col-span-1 group">
-                                            <div className="relative bg-gradient-to-br from-background/90 to-background/70 backdrop-blur-xl rounded-2xl p-6 transform transition-all duration-500 hover:scale-105 hover:-translate-y-1" style={{boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.1)'}}>
-                                                <div className="absolute inset-0 bg-gradient-to-br from-muted/5 via-muted/3 to-muted/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                                                
-                                                {/* 浮动粒子效果 - 限制在卡片内部 */}
-                                                <div className="absolute inset-0 rounded-2xl overflow-hidden">
-                                                    <div className="absolute top-4 right-4 w-2 h-2 bg-muted-foreground/30 rounded-full animate-ping"></div>
-                                                    <div className="absolute top-8 right-8 w-1 h-1 bg-muted-foreground/20 rounded-full animate-ping delay-300"></div>
-                                                    <div className="absolute top-6 right-12 w-1.5 h-1.5 bg-muted-foreground/25 rounded-full animate-ping delay-700"></div>
-                                                </div>
-                                                
-                                                <div className="relative z-10">
-                                                    <div className="w-16 h-16 bg-green-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                                                        <svg className="w-8 h-8 text-green-600 group-hover:text-green-700 transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                                                        </svg>
+                                            <div className="lg:col-span-5">
+                                                <div className="grid grid-cols-1 gap-4">
+                                                    <div className="rounded-2xl border bg-gradient-to-br from-muted/10 to-muted/5 p-5">
+                                                        <div className="text-sm text-muted-foreground">第一核心能力</div>
+                                                        <div className="mt-2 text-xl font-bold text-foreground">秒Claw超级AI智能员工</div>
+                                                        <div className="mt-2 text-sm text-muted-foreground">全自动完成线上运营与企业销售指导</div>
                                                     </div>
-                                                    <h3 className="text-xl font-bold mb-4 text-foreground">全域营销赋能陪跑体系</h3>
-                                                    <p className="text-sm text-muted-foreground mb-4 leading-relaxed">手把手教学+复盘优化，从内容创作到销售转化全流程落地</p>
-                                                    <div className="space-y-3 text-xs">
-                                                        <div className="flex items-center text-muted-foreground">
-                                                            <div className="w-2 h-2 bg-muted-foreground rounded-full mr-2"></div>
-                                                            写拍剪全流程线下教学
-                                                        </div>
-                                                        <div className="flex items-center text-muted-foreground">
-                                                            <div className="w-2 h-2 bg-muted-foreground rounded-full mr-2"></div>
-                                                            直播间搭建与话术打造
-                                                        </div>
-                                                        <div className="flex items-center text-muted-foreground">
-                                                            <div className="w-2 h-2 bg-muted-foreground rounded-full mr-2"></div>
-                                                            营销体系规划与爆品制定
-                                                        </div>
+                                                    <div className="rounded-2xl border bg-gradient-to-br from-muted/10 to-muted/5 p-5">
+                                                        <div className="text-sm text-muted-foreground">7×24承接</div>
+                                                        <div className="mt-2 text-xl font-bold text-foreground">AI智能客服系统</div>
+                                                        <div className="mt-2 text-sm text-muted-foreground">销冠级回复，客资实时同步CRM</div>
                                                     </div>
-                                                    <div className="mt-6 px-3 py-1.5 bg-muted/30 rounded-lg">
-                                                        <div className="text-xs text-foreground font-semibold">企业版 • 五阶段陪跑</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        {/* AI赋能+短期赋能陪跑 */}
-                                        <div className="lg:col-span-1 group">
-                                            <div className="relative bg-gradient-to-br from-background/90 to-background/70 backdrop-blur-xl rounded-2xl p-6 transform transition-all duration-500 hover:scale-105 hover:-translate-y-1" style={{boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.1)'}}>
-                                                <div className="absolute inset-0 bg-gradient-to-br from-muted/5 via-muted/3 to-muted/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                                                
-                                                {/* 浮动粒子效果 - 限制在卡片内部 */}
-                                                <div className="absolute inset-0 rounded-2xl overflow-hidden">
-                                                    <div className="absolute top-4 right-4 w-2 h-2 bg-muted-foreground/30 rounded-full animate-ping"></div>
-                                                    <div className="absolute top-8 right-8 w-1 h-1 bg-muted-foreground/20 rounded-full animate-ping delay-300"></div>
-                                                    <div className="absolute top-6 right-12 w-1.5 h-1.5 bg-muted-foreground/25 rounded-full animate-ping delay-700"></div>
-                                                </div>
-                                                
-                                                <div className="relative z-10">
-                                                    <div className="w-16 h-16 bg-purple-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                                                        <svg className="w-8 h-8 text-purple-600 group-hover:text-purple-700 transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                                        </svg>
-                                                    </div>
-                                                    <h3 className="text-xl font-bold mb-4 text-foreground">AI赋能+短期赋能陪跑</h3>
-                                                    <p className="text-sm text-muted-foreground mb-4 leading-relaxed">聚焦短期高效获客，融合AI工具与专项教学，2个月内快速见效</p>
-                                                    <div className="space-y-3 text-xs">
-                                                        <div className="flex items-center text-muted-foreground">
-                                                            <div className="w-2 h-2 bg-muted-foreground rounded-full mr-2"></div>
-                                                            AI工具快速搭建部署
-                                                        </div>
-                                                        <div className="flex items-center text-muted-foreground">
-                                                            <div className="w-2 h-2 bg-muted-foreground rounded-full mr-2"></div>
-                                                            专项技能密集教学
-                                                        </div>
-                                                        <div className="flex items-center text-muted-foreground">
-                                                            <div className="w-2 h-2 bg-muted-foreground rounded-full mr-2"></div>
-                                                            黄老师分身专属支持
-                                                        </div>
-                                                    </div>
-                                                    <div className="mt-6 px-3 py-1.5 bg-muted/30 rounded-lg">
-                                                        <div className="text-xs text-foreground font-semibold">企业版 • 短期见效</div>
+                                                    <div className="rounded-2xl border bg-gradient-to-br from-muted/10 to-muted/5 p-5">
+                                                        <div className="text-sm text-muted-foreground">陪跑落地</div>
+                                                        <div className="mt-2 text-xl font-bold text-foreground">线下培训 + 线上答疑</div>
+                                                        <div className="mt-2 text-sm text-muted-foreground">阶段复盘迭代，确保团队学会并拿到结果</div>
                                                     </div>
                                                 </div>
                                             </div>

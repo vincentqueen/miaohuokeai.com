@@ -17,6 +17,8 @@ const menuItems = [
     { name: 'AI数字员工', href: 'https://agent.actoncode.cn/web/?tid=10033' },
 ]
 
+const CTA_FORM_URL = 'https://easevision.feishu.cn/share/base/form/shrcnsfdHd9pTbe3loYp2YI67mh'
+
 export function Navigation() {
     const [menuState, setMenuState] = React.useState(false)
     const [isScrolled, setIsScrolled] = React.useState(false)
@@ -85,27 +87,19 @@ export function Navigation() {
                                 <ThemeToggle />
                                 <Button
                                     asChild
+                                    size="sm"
+                                    className="w-full sm:w-auto">
+                                    <Link href={CTA_FORM_URL} target="_blank" rel="noopener noreferrer">
+                                        <span>领取定制化方案</span>
+                                    </Link>
+                                </Button>
+                                <Button
+                                    asChild
                                     variant="outline"
                                     size="sm"
-                                    className={cn(isScrolled && 'lg:hidden')}>
-                                    <Link href="#">
-                                        <span>Login</span>
-                                    </Link>
-                                </Button>
-                                <Button
-                                    asChild
-                                    size="sm"
-                                    className={cn(isScrolled && 'lg:hidden')}>
-                                    <Link href="#">
-                                        <span>Sign Up</span>
-                                    </Link>
-                                </Button>
-                                <Button
-                                    asChild
-                                    size="sm"
-                                    className={cn(isScrolled ? 'lg:inline-flex' : 'hidden')}>
-                                    <Link href="#">
-                                        <span>Get Started</span>
+                                    className="w-full sm:w-auto">
+                                    <Link href="/contact">
+                                        <span>联系我们</span>
                                     </Link>
                                 </Button>
                             </div>

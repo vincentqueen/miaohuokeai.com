@@ -355,11 +355,6 @@ export default function ContactPage() {
               >
                 © 2025 成都一郅映画文化传媒有限公司版权所有
               </motion.p>
-              <div className="flex justify-center space-x-6 text-xs text-foreground">
-                <span>蜀ICP备xxxxxxxx号</span>
-                <span>|</span>
-                <span>川公网安备xxxxxxxx号</span>
-              </div>
             </div>
           </div>
         </motion.footer>
