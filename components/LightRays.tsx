@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, useSyncExternalStore } from "react";
 import { Renderer, Program, Triangle, Mesh } from "ogl";
 
 export type RaysOrigin =
@@ -100,13 +100,12 @@ const LightRays: React.FC<LightRaysProps> = ({
   const meshRef = useRef<Mesh | null>(null);
   const cleanupFunctionRef = useRef<(() => void) | null>(null);
   const [isVisible, setIsVisible] = useState(false);
-  const [isMounted, setIsMounted] = useState(false);
+  const isMounted = useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false
+  );
   const observerRef = useRef<IntersectionObserver | null>(null);
-
-  // 确保组件只在客户端渲染
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
 
   useEffect(() => {
     if (!isMounted || !containerRef.current) return;

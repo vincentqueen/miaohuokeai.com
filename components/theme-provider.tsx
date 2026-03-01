@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, { createContext, useContext, useEffect, useSyncExternalStore } from "react";
 
 type Theme = "dark" | "light" | "system";
 
@@ -28,21 +28,25 @@ export function ThemeProvider({
   storageKey = "miaohuoke-ui-theme",
   ...props
 }: ThemeProviderProps) {
-  const [theme, setTheme] = useState<Theme>(defaultTheme);
-  const [mounted, setMounted] = useState(false);
+  const theme = useSyncExternalStore(
+    (onStoreChange) => {
+      if (typeof window === "undefined") return () => null;
+      const handleStorage = (event: StorageEvent) => {
+        if (event.key === storageKey) onStoreChange();
+      };
+      const handleThemeChange = () => onStoreChange();
+      window.addEventListener("storage", handleStorage);
+      window.addEventListener("theme-change", handleThemeChange);
+      return () => {
+        window.removeEventListener("storage", handleStorage);
+        window.removeEventListener("theme-change", handleThemeChange);
+      };
+    },
+    () => (localStorage?.getItem(storageKey) as Theme) ?? defaultTheme,
+    () => defaultTheme
+  );
 
-  // 在客户端挂载后从localStorage读取主题
   useEffect(() => {
-    setMounted(true);
-    const storedTheme = localStorage?.getItem(storageKey) as Theme;
-    if (storedTheme) {
-      setTheme(storedTheme);
-    }
-  }, [storageKey]);
-
-  useEffect(() => {
-    if (!mounted) return;
-    
     const root = window.document.documentElement;
 
     root.classList.remove("light", "dark");
@@ -58,13 +62,15 @@ export function ThemeProvider({
     }
 
     root.classList.add(theme);
-  }, [theme, mounted]);
+  }, [theme]);
 
   const value = {
     theme,
     setTheme: (theme: Theme) => {
       localStorage?.setItem(storageKey, theme);
-      setTheme(theme);
+      if (typeof window !== "undefined") {
+        window.dispatchEvent(new Event("theme-change"));
+      }
     },
   };
 

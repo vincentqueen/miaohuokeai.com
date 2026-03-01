@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { motion } from "motion/react";
 
 interface TrueFocusProps {
@@ -32,15 +32,14 @@ const TrueFocus: React.FC<TrueFocusProps> = ({
     const words = sentence.split(" ");
     const [currentIndex, setCurrentIndex] = useState<number>(0);
     const [lastActiveIndex, setLastActiveIndex] = useState<number | null>(null);
-    const [isMounted, setIsMounted] = useState(false);
+    const isMounted = useSyncExternalStore(
+        () => () => {},
+        () => true,
+        () => false
+    );
     const containerRef = useRef<HTMLDivElement | null>(null);
     const wordRefs = useRef<(HTMLSpanElement | null)[]>([]);
     const [focusRect, setFocusRect] = useState<FocusRect>({ x: 0, y: 0, width: 0, height: 0 });
-
-    // 确保组件只在客户端渲染
-    useEffect(() => {
-        setIsMounted(true);
-    }, []);
 
     useEffect(() => {
         if (!isMounted || manualMode) return;
